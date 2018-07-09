@@ -1,5 +1,5 @@
 - Setup ThrottleStop (https://www.techpowerup.com/download/techpowerup-throttlestop/)
-  - CPU/Cache=-160.2, iGPU=-100.6
+  - Set FIVR to CPU/Cache=-160.2, iGPU=-100.6
 - ...
 - Install FiraCode Retina from https://github.com/tonsky/FiraCode/releases
 - ...
