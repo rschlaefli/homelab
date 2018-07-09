@@ -1,0 +1,1 @@
+- Install FiraCode Retina from https://github.com/tonsky/FiraCode/releases
