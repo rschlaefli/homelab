@@ -9,7 +9,7 @@
   - https://www.intel.com/content/www/us/en/support/articles/000005634/network-and-i-o/wireless-networking.html
 - Install latest Intel and Nvidia drivers
   - https://downloadcenter.intel.com/download/27988/Intel-Graphics-Driver-for-Windows-10
-  - https://www.nvidia.com/Download/driverResults.aspx/138072/en-us
+  - https://www.nvidia.com/en-us/geforce/geforce-experience/
 
 ## Software Installations(Chocolatey)
 - Install chocolatey from https://chocolatey.org/install
