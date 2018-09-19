@@ -38,3 +38,4 @@
 
 ## General Setup and Cleanup
 - Cleanup start menu and app shortcuts
+- Setup automatic pruning of downloads directory
