@@ -35,7 +35,7 @@
 - Install Anaconda from https://www.anaconda.com/download/
 - Install Cyberduck from https://cyberduck.io/
 - Install MobaXTerm from https://mobaxterm.mobatek.net/
-- Install Synology Drive and Backup
+- Install Synology Drive and Backup from https://www.synology.com/en-global/support/download/DS713+#utilities
 - Install Spotify from https://www.spotify.com/ch-de/download/windows/
 
 ## General Setup and Cleanup
