@@ -30,6 +30,7 @@
 - Install ImDisk Toolkit from https://sourceforge.net/projects/imdisk-toolkit/
   - Setup RAMDisk for Browser Caches etc.
 - Install FiraCode Retina from https://github.com/tonsky/FiraCode/releases
+- Install Microsoft Office Education
 - Install Station from https://getstation.com/
   - Add Google Services (Inbox, Calendar)
   - Add Slack Teams (uzh-bf, ...)
