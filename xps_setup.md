@@ -22,6 +22,8 @@
 ## Software Installations (Other)
 - Setup ThrottleStop from https://www.techpowerup.com/download/techpowerup-throttlestop/
   - Set FIVR to CPU/Cache=-160.2, iGPU=-100.6
+- Install ImDisk Toolkit from https://sourceforge.net/projects/imdisk-toolkit/
+  - Setup RAMDisk for Browser Caches etc.
 - Install FiraCode Retina from https://github.com/tonsky/FiraCode/releases
 - Install Station from https://getstation.com/
   - Add Google Services (Inbox, Calendar)
