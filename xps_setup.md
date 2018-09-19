@@ -26,6 +26,7 @@
   
 ## Software Installations (Other)
 - Install Visual C++ 2013 Redistributable from https://www.microsoft.com/en-us/download/details.aspx?id=40784
+- Install Synology Drive and Backup from https://www.synology.com/en-global/support/download/DS713+#utilities
 - Setup ThrottleStop from https://www.techpowerup.com/download/techpowerup-throttlestop/
   - Set FIVR to CPU/Cache=-160.2, iGPU=-100.6
 - Install ImDisk Toolkit from https://sourceforge.net/projects/imdisk-toolkit/
@@ -42,7 +43,6 @@
 - Install Anaconda from https://www.anaconda.com/download/
 - Install Cyberduck from https://cyberduck.io/
 - Install MobaXTerm from https://mobaxterm.mobatek.net/
-- Install Synology Drive and Backup from https://www.synology.com/en-global/support/download/DS713+#utilities
 - Install Spotify from https://www.spotify.com/ch-de/download/windows/
 
 ## General Setup and Cleanup
