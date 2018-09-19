@@ -25,6 +25,7 @@
 - Install the 1Password browser addon from https://1password.com/browsers/
   
 ## Software Installations (Other)
+- Install Visual C++ 2013 Redistributable from https://www.microsoft.com/en-us/download/details.aspx?id=40784
 - Setup ThrottleStop from https://www.techpowerup.com/download/techpowerup-throttlestop/
   - Set FIVR to CPU/Cache=-160.2, iGPU=-100.6
 - Install ImDisk Toolkit from https://sourceforge.net/projects/imdisk-toolkit/
