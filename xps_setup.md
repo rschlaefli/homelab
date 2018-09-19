@@ -1,5 +1,10 @@
 # XPS 15 Setup
 
+## Partitioning
+1. C: System (Windows)
+2. D: Data (Shared)
+3. System (Ubuntu)
+
 ## Drivers
 - Install Dell drivers and Dell Update software
   - https://www.dell.com/support/home/ch/de/chdhs1/product-support/servicetag/1blh5q2/drivers
