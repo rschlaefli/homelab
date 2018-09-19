@@ -7,6 +7,9 @@
   - https://www.samsung.com/semiconductor/minisite/ssd/download/tools/
 - Install Intel Wifi driver
   - https://www.intel.com/content/www/us/en/support/articles/000005634/network-and-i-o/wireless-networking.html
+- Install latest Intel and Nvidia drivers
+  - https://downloadcenter.intel.com/download/27988/Intel-Graphics-Driver-for-Windows-10
+  - https://www.nvidia.com/Download/driverResults.aspx/138072/en-us
 
 ## Software Installations(Chocolatey)
 - Install chocolatey from https://chocolatey.org/install
@@ -30,6 +33,7 @@
 - Install Anaconda from https://www.anaconda.com/download/
 - Install Cyberduck from https://cyberduck.io/
 - Install MobaXTerm from https://mobaxterm.mobatek.net/
+- Install Synology Drive and Backup
 
 ## General Setup and Cleanup
 - Cleanup start menu and app shortcuts
