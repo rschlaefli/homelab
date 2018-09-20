@@ -45,6 +45,7 @@
 - Install Cyberduck from https://cyberduck.io/
 - Install MobaXTerm from https://mobaxterm.mobatek.net/
 - Install Spotify from https://www.spotify.com/ch-de/download/windows/
+- Install Harvest for Windows from https://www.getharvest.com/apps/windows
 
 ## General Setup and Cleanup
 - Cleanup start menu and app shortcuts
