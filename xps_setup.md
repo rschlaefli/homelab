@@ -52,3 +52,11 @@
 ## General Setup and Cleanup
 - Cleanup start menu and app shortcuts
 - Setup automatic pruning of downloads directory
+
+## Git Aliases
+- git config --global user.email "rolandschlaefli@gmail.com"
+- git config --global user.name "Roland Schlaefli"
+- git config alias.cm commit
+- git config alias.df diff
+- git config alias.ds "diff --staged"
+- git config alias.st status
