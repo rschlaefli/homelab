@@ -24,6 +24,7 @@
 - Link 1Password with the schlaefli.1password.com family account (ensure correct time for 2FA)
 - Install the 1Password browser addon from https://1password.com/browsers/
 - Adjust settings for f.lux (3400/3100/2800)
+- Setup sync with VSCode
   
 ## Software Installations (Other)
 - Install Visual C++ 2013 Redistributable from https://www.microsoft.com/en-us/download/details.aspx?id=40784
@@ -46,6 +47,7 @@
 - Install MobaXTerm from https://mobaxterm.mobatek.net/
 - Install Spotify from https://www.spotify.com/ch-de/download/windows/
 - Install Harvest for Windows from https://www.getharvest.com/apps/windows
+- Install Windows Build Tools from https://github.com/felixrieseberg/windows-build-tools
 
 ## General Setup and Cleanup
 - Cleanup start menu and app shortcuts
