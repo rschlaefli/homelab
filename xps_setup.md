@@ -19,10 +19,11 @@
 ## Software Installations(Chocolatey)
 - Install chocolatey from https://chocolatey.org/install
 - Install packages with chocolatey
-  - choco install firefox googlechrome 1password vscode yubico-authenticator evernote vlc 7zip adobereader git.install nodejs.install treesizefree gimp yarn 
+  - choco install firefox googlechrome 1password vscode yubico-authenticator evernote vlc 7zip adobereader git.install nodejs.install treesizefree gimp yarn f.lux
 - Setup firefox sync for extensions synchronization
 - Link 1Password with the schlaefli.1password.com family account (ensure correct time for 2FA)
 - Install the 1Password browser addon from https://1password.com/browsers/
+- Adjust settings for f.lux (3400/3100/2800)
   
 ## Software Installations (Other)
 - Install Visual C++ 2013 Redistributable from https://www.microsoft.com/en-us/download/details.aspx?id=40784
