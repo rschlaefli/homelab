@@ -53,7 +53,9 @@
 - Cleanup start menu and app shortcuts
 - Setup automatic pruning of downloads directory
 
-## Git Aliases
+## Git Config
+- gpg --gen-key
+- git config --global user.signingkey CFD7A5F7
 - git config --global user.email "rolandschlaefli@gmail.com"
 - git config --global user.name "Roland Schlaefli"
 - git config --global alias.cm "commit -m"
