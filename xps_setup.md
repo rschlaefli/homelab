@@ -52,6 +52,7 @@
 ## General Setup and Cleanup
 - Cleanup start menu and app shortcuts
 - Setup automatic pruning of downloads directory
+- Activate Windows Subsystem for Linux and install Ubuntu from the Windows Store
 
 ## Git Config
 - gpg --gen-key
