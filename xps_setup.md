@@ -64,3 +64,7 @@
 - git config --global alias.df diff
 - git config --global alias.ds "diff --staged"
 - git config --global alias.st status
+
+## WSL
+- Link JDK/JRD of Windows environment
+  - ln -s /mnt/c/Program\ Files/Java/jdk1.8.0_201/bin/java.exe /bin/java
