@@ -1,1 +1,2 @@
+- Install Fira Code Retina from https://github.com/tonsky/FiraCode
 - Install ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
