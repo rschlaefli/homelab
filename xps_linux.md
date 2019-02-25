@@ -4,3 +4,6 @@
 - Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 - Install Anaconda from https://www.anaconda.com/distribution/#download-section
 - Install nvm from https://github.com/creationix/nvm
+
+- `git config --global user.email "rolandschlaefli@gmail.com"`
+- `git config --global user.name "Roland Schlaefli"`
