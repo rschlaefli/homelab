@@ -1,0 +1,7 @@
+# install microsoft vscode
+# see https://code.visualstudio.com/docs/setup/linux
+
+- name: Install vscode
+  apt:
+    deb: https://go.microsoft.com/fwlink/?LinkID=760868
+    state: present

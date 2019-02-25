@@ -1,0 +1,42 @@
+- name: Update APT package cache
+  apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+- name: Install required packages
+  apt:
+        name: "{{packages}}"
+        state: latest
+  vars:
+        packages:
+              - apt-transport-https
+              - ca-certificates
+              - curl
+              - software-properties-common
+
+- name: Add the Docker repository key
+  apt_key:
+        id: 0EBFCD88
+        url: "https://download.docker.com/linux/ubuntu/gpg"
+        state: present
+
+- name: Add the Docker stable repository
+  apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+        state: present
+
+- name: Install docker-ce
+  apt:
+        name: docker-ce
+        state: latest
+
+- name: Configure the docker service to start on boot and ensure it is started
+  service:
+        name: docker
+        enabled: yes
+        state: started
+
+- name: Increase VM max map count
+  sysctl:
+        name: vm.max_map_count
+        value: "262144"
