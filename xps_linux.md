@@ -1,1 +1,9 @@
-- Install ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+- Setup unvervolting with https://github.com/georgewhewell/undervolt
+  - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
+- Install Fira Code Retina from https://github.com/tonsky/FiraCode
+- Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+- Install Anaconda from https://www.anaconda.com/distribution/#download-section
+- Install nvm from https://github.com/creationix/nvm
+
+- `git config --global user.email "rolandschlaefli@gmail.com"`
+- `git config --global user.name "Roland Schlaefli"`
