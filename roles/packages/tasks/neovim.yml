@@ -1,0 +1,11 @@
+# install neovim
+
+- name: Add the neovim repository
+  apt_repository:
+    repo: ppa:neovim-ppa/stable
+    state: present
+
+- name: Install neovim
+  apt:
+    name: neovim
+    state: latest
