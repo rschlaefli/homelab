@@ -32,4 +32,7 @@ PATH="$HOME/.cargo/bin:$PATH"
 # add anaconda to the path
 PATH="/opt/anaconda3/bin:$PATH"
 
+# add ~/local/bin to the path
+PATH="$HOME/local/bin:$PATH"
+
 export PATH
