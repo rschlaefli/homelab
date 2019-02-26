@@ -1,0 +1,7 @@
+- name: Allow roland to sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%roland"
+    line: "%roland ALL=(ALL) ALL"
+    validate: "visudo -cf %s"

@@ -1,6 +1,7 @@
 - name: Setup ubuntu
   hosts: 127.0.0.1
   roles:
-        - packages
-        - docker
-        - java
+    - bootstrap
+    - packages
+    - docker
+    - java

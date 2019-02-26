@@ -15,6 +15,7 @@
     packages:
       - nano
       - htop
+      - gufw
 
 - name: nvm
   shell: >
