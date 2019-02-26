@@ -9,3 +9,4 @@
 - `git config --global user.name "Roland Schlaefli"`
 
 - Install GitKraken from https://snapcraft.io/gitkraken
+- Install jrnl from http://jrnl.sh/installation.html
