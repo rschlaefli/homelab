@@ -7,3 +7,5 @@
 
 - `git config --global user.email "rolandschlaefli@gmail.com"`
 - `git config --global user.name "Roland Schlaefli"`
+
+- Install GitKraken from https://snapcraft.io/gitkraken
