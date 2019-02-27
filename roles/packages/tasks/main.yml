@@ -26,5 +26,5 @@
 - include_tasks: vscode.yml
 - include_tasks: flux.yml
 - include_tasks: neovim.yml
-- include_tasks: drive.yml
+- include_tasks: synology.yml
 # - include_tasks: merge.yml

@@ -1,4 +1,0 @@
-- name: Install synology drive
-  apt:
-    deb: https://global.download.synology.com/download/Tools/SynologyDriveClient/1.1.3-10570/Ubuntu/Installer/x86_64/synology-drive-10570.x86_64.deb
-    state: present
