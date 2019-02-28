@@ -23,6 +23,11 @@
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
 
+- name: Install pomodoro timer
+  apt:
+    name: gnome-shell-pomodoro
+    state: latest
+
 - include_tasks: vscode.yml
 - include_tasks: flux.yml
 - include_tasks: neovim.yml

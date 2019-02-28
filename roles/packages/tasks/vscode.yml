@@ -3,5 +3,24 @@
 
 - name: Install vscode
   apt:
-    deb: https://go.microsoft.com/fwlink/?LinkID=760868
-    state: present
+      deb: https://go.microsoft.com/fwlink/?LinkID=760868
+      state: present
+
+# https://code.visualstudio.com/docs/setup/linux#_debian-and-moving-files-to-trash
+- name: Ensure the package needed for file deletion is installed
+  apt:
+      name: gvfs-bin
+      state: latest
+
+# https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc
+- name: Ensure that there are enough file handles for the file watcher
+  sysctl:
+      name: fs.inotify.max_user_watches
+      value: "524288"
+      state: present
+
+# https://code.visualstudio.com/docs/setup/linux#_debian-alternatives-system
+- name: Make vscode the default editor
+  alternatives:
+      name: editor
+      path: /usr/bin/code
