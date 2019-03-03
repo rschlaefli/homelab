@@ -53,7 +53,7 @@
   args:
       creates: "/usr/local/bin/docker-compose"
 
-- name: Install kubectl
-  shell: snap install kubectl
+# - name: Install kubectl
+# shell: snap install kubectl
   # snap:
     # name: kubectl
