@@ -23,6 +23,7 @@
     - postman
     - redis-desktop-manager
     - chromium
+    - mailspring
 
 - name: Install git-standup
   shell: snap install git-standup --edge
