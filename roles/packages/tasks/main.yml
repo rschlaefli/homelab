@@ -1,35 +1,68 @@
-- name: Update APT package cache
-  apt:
-    update_cache: yes
-    cache_valid_time: 3600
+- name: Ensure that a ~/bin directory is available
+  become: yes
+  become_user: roland
+  file:
+    path: /home/roland/bin
+    state: directory
 
-- name: Upgrade all installed APT packages (in safe mode)
+- name: Install the gnome tweaks application
   apt:
-    upgrade: safe
-
-- name: Install basic system management packages
-  apt:
-    name: "{{ packages }}"
+    name: gnome-tweak-tool
     state: latest
-  vars:
-    packages:
-      - nano
-      - htop
-      - gufw
-
-- name: Install nvm
-  shell: >
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-  args:
-    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
 
 - name: Install pomodoro timer
   apt:
     name: gnome-shell-pomodoro
     state: latest
 
+- name: Install snaps
+  shell: snap install {{item}}
+  with_items:
+    - gitkraken
+    - spotify
+    - postman
+    - redis-desktop-manager
+    - chromium
+
+- name: Install git-standup
+  shell: snap install git-standup --edge
+
+# - name: Install GitKraken
+  # snap:
+    # name: gitkraken
+
+# - name: Install Spotify
+  # snap:
+    # name: spotify
+
+# - name: Install Postman
+  # snap:
+    # name: postman
+
+# - name: Install RedisDesktopManager
+  # snap:
+    # name: redis-desktop-manager
+
+# - name: Install git-standup
+  # snap:
+    # name: git-standup
+    # channel: latest/edge
+
+# - name: Install Chromium    
+  # snap:
+    # name: chromium
+
+# - name: Install Station
+  # become: yes
+  # become_user: roland
+  # get_url:
+    # url: https://dl.getstation.com/download/linux_64?filetype=AppImage
+    # dest: /home/roland/bin
+    # mode: 0700
+  # args:
+    # creates: "{{ ansible_env.HOME }}/bin/browserX-1.38.1-x86_64.AppImage"
+    
 - include_tasks: vscode.yml
-- include_tasks: flux.yml
 - include_tasks: neovim.yml
 - include_tasks: synology.yml
-# - include_tasks: merge.yml
+# - include_tasks: flux.yml

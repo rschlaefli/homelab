@@ -6,7 +6,39 @@
 # line: "roland ALL=(ALL) ALL"
 # validate: "visudo -cf %s"
 
-- name: Disable swap
-  sysctl:
-    name: vm.swappiness
-    value: "0"
+# - name: Disable swap
+# sysctl:
+# name: vm.swappiness
+# value: "0"
+
+- name: Update APT package cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Upgrade all installed APT packages (in safe mode)
+  apt:
+    upgrade: safe
+
+- name: Install basic system management packages
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - nano
+      - htop
+
+- name: Install the nemo file explorer
+  apt:
+    name: nemo
+    state: latest
+
+- name: Make nemo the default file explorer
+  shell: xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+
+- name: Install UFW GUI
+  apt:
+    name: gufw
+    state: latest
+  

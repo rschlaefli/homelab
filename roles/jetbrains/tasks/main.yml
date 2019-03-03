@@ -1,0 +1,7 @@
+- name: Install JetBrains Toolbox
+  become: yes
+  become_user: roland
+  unarchive:
+    src: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.13.4801.tar.gz"
+    dest: "/home/bin"
+  
