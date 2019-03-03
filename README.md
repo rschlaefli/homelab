@@ -10,8 +10,6 @@
 - Install Anaconda from https://www.anaconda.com/distribution/#download-section
   - Use `/opt/anaconda3` as path
   - Add to /etc/profile path to make globally accessible
-- Install nvm from https://github.com/creationix/nvm
-  - Install LTS and latest version
 - Initialize Git configuration
   - `git config --global user.email "rolandschlaefli@gmail.com"`
   - `git config --global user.name "Roland Schlaefli"`
