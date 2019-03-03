@@ -2,11 +2,11 @@
 
 ## Dell XPS 15 9570 - Ubuntu 18.04
 
-- Setup unvervolting with https://github.com/georgewhewell/undervolt
+- Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+- [XPS 15] Setup unvervolting with https://github.com/georgewhewell/undervolt
   - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
   - Setup autostart with service and timer as described in README
 - Install Fira Code Retina from https://github.com/tonsky/FiraCode
-- Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 - Install Anaconda from https://www.anaconda.com/distribution/#download-section
   - Use `/opt/anaconda3` as path
   - Add to /etc/profile path to make globally accessible
