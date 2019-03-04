@@ -2,29 +2,32 @@
   become: yes
   become_user: roland
   file:
-      path: /home/roland/bin
-      state: directory
+    path: /home/roland/bin
+    state: directory
 
 - name: Install the gnome tweaks application
   apt:
-      name: gnome-tweak-tool
-      state: latest
+    name: gnome-tweak-tool
+    state: latest
 
 - name: Install pomodoro timer
   apt:
-      name: gnome-shell-pomodoro
-      state: latest
+    name: gnome-shell-pomodoro
+    state: latest
 
 - name: Install snaps
   shell: snap install {{item}}
   with_items:
-      - gitkraken
-      - spotify
-      - postman
-      - redis-desktop-manager
-      - chromium
-      - mailspring
-      - cacher
+    - gitkraken
+    - spotify
+    - postman
+    - redis-desktop-manager
+    - chromium
+    - mailspring
+    - cacher
+    - writefull
+    - bitwarden
+    - bw
 
 - name: Install git-standup
   shell: snap install git-standup --edge
@@ -67,4 +70,6 @@
 - include_tasks: vscode.yml
 - include_tasks: neovim.yml
 - include_tasks: synology.yml
+- include_tasks: mendeley.yml
+- include_tasks: albert.yml
 # - include_tasks: flux.yml
