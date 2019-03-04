@@ -1,0 +1,28 @@
+- name: Add the albert repository key for 18.04
+  apt_key:
+    url: "https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_18.04/Release.key"
+    state: present
+  when: ansible_distribution_release == 'bionic'
+
+- name: Add the albert repository key for 18.10
+  apt_key:
+    url: "https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_18.10/Release.key"
+    state: present
+  when: ansible_distribution_release == 'cosmic'
+
+- name: Add the albert repository for 18.04
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.04/ /
+    state: present
+  when: ansible_distribution_release == 'bionic'
+
+- name: Add the albert repository for 18.10
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.04/ /
+    state: present
+  when: ansible_distribution_release == 'cosmic'
+
+- name: Install albert
+  apt:
+    name: albert
+    state: latest
