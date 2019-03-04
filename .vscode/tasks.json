@@ -6,12 +6,13 @@
     {
       "label": "Run playbook (XPS)",
       "type": "shell",
-      "command": "xps_linux.sh"
+      "command": "./xps_linux.sh",
+      "problemMatcher": []
     },
     {
       "label": "Run playbook (NUC)",
       "type": "shell",
-      "command": "nuc_linux.sh"
+      "command": "./nuc_linux.sh"
     }
   ]
 }
