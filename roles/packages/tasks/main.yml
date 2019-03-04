@@ -2,67 +2,68 @@
   become: yes
   become_user: roland
   file:
-    path: /home/roland/bin
-    state: directory
+      path: /home/roland/bin
+      state: directory
 
 - name: Install the gnome tweaks application
   apt:
-    name: gnome-tweak-tool
-    state: latest
+      name: gnome-tweak-tool
+      state: latest
 
 - name: Install pomodoro timer
   apt:
-    name: gnome-shell-pomodoro
-    state: latest
+      name: gnome-shell-pomodoro
+      state: latest
 
 - name: Install snaps
   shell: snap install {{item}}
   with_items:
-    - gitkraken
-    - spotify
-    - postman
-    - redis-desktop-manager
-    - chromium
-    - mailspring
+      - gitkraken
+      - spotify
+      - postman
+      - redis-desktop-manager
+      - chromium
+      - mailspring
+      - cacher
 
 - name: Install git-standup
   shell: snap install git-standup --edge
 
 # - name: Install GitKraken
-  # snap:
-    # name: gitkraken
+# snap:
+# name: gitkraken
 
 # - name: Install Spotify
-  # snap:
-    # name: spotify
+# snap:
+# name: spotify
 
 # - name: Install Postman
-  # snap:
-    # name: postman
+# snap:
+# name: postman
 
 # - name: Install RedisDesktopManager
-  # snap:
-    # name: redis-desktop-manager
+# snap:
+# name: redis-desktop-manager
 
 # - name: Install git-standup
-  # snap:
-    # name: git-standup
-    # channel: latest/edge
+# snap:
+# name: git-standup
+# channel: latest/edge
 
-# - name: Install Chromium    
-  # snap:
-    # name: chromium
+# - name: Install Chromium
+# snap:
+# name: chromium
 
 # - name: Install Station
-  # become: yes
-  # become_user: roland
-  # get_url:
-    # url: https://dl.getstation.com/download/linux_64?filetype=AppImage
-    # dest: /home/roland/bin
-    # mode: 0700
-  # args:
-    # creates: "{{ ansible_env.HOME }}/bin/browserX-1.38.1-x86_64.AppImage"
-    
+# become: yes
+# become_user: roland
+# get_url:
+# url: https://dl.getstation.com/download/linux_64?filetype=AppImage
+# dest: /home/roland/bin
+# mode: 0700
+# args:
+# creates: "{{ ansible_env.HOME }}/bin/browserX-1.38.1-x86_64.AppImage"
+
 - include_tasks: vscode.yml
 - include_tasks: neovim.yml
 - include_tasks: synology.yml
