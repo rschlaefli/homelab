@@ -1,0 +1,4 @@
+- name: Install PDFStudio Viewer
+  apt:
+    deb: https://download.qoppa.com/pdfstudioviewer/PDFStudioViewer_linux64.deb
+    state: present
