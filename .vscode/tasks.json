@@ -12,7 +12,8 @@
     {
       "label": "Run playbook (NUC)",
       "type": "shell",
-      "command": "./nuc_linux.sh"
+      "command": "./nuc_linux.sh",
+      "problemMatcher": []
     }
   ]
 }

@@ -3,6 +3,8 @@
 ## Dell XPS 15 9570 - Ubuntu 18.04
 
 - Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+- Bootstrap
+    - Make nemo the default file explorer: https://itsfoss.com/install-nemo-file-manager-ubuntu/
 - [XPS 15] Setup unvervolting with https://github.com/georgewhewell/undervolt
   - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
   - Setup autostart with service and timer as described in README
@@ -20,6 +22,8 @@
   - `curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose`
   - `chmod +x /usr/local/bin/docker-compose`
 - Install tldr from https://github.com/tldr-pages/tldr
+- Setup Gnome extensions 
+  - Install night slider extension from https://extensions.gnome.org/extension/1276/night-light-slider/
 
 ## Dell XPS 15 9570 - Windows 10
 
