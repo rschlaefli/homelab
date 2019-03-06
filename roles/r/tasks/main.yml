@@ -1,3 +1,5 @@
+# TODO: parametrize RStudio version
+
 - name: Add the R repository key
   apt_key:
     id: E298A3A825C0D65DFD57CBB651716619E084DAB9

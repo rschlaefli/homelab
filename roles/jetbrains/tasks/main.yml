@@ -1,3 +1,6 @@
+# TODO: make sure this installation is idempotent
+# TODO: parametrize toolbox version (latest_)
+
 - name: Install JetBrains Toolbox
   become: yes
   become_user: roland

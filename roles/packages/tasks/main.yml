@@ -1,3 +1,7 @@
+# TODO: make username configurable
+# TODO: make snaps configurable
+# TODO: fix station install overriding upgrades
+
 - name: Ensure that a ~/bin directory is available
   become: yes
   become_user: roland
@@ -36,31 +40,6 @@
 
 - name: Install git-standup
   shell: snap install git-standup --edge
-
-# - name: Install GitKraken
-# snap:
-# name: gitkraken
-
-# - name: Install Spotify
-# snap:
-# name: spotify
-
-# - name: Install Postman
-# snap:
-# name: postman
-
-# - name: Install RedisDesktopManager
-# snap:
-# name: redis-desktop-manager
-
-# - name: Install git-standup
-# snap:
-# name: git-standup
-# channel: latest/edge
-
-# - name: Install Chromium
-# snap:
-# name: chromium
 
 # - name: Install Station
 # become: yes

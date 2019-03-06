@@ -1,0 +1,11 @@
+# TODO: add UZH VPN
+
+- name: Install openconnect dependencies
+  apt:
+    name: "{{packages}}"
+    state: latest
+  vars:
+    packages:
+    - network-manager-openconnect
+    - network-manager-openconnect-gnome
+

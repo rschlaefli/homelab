@@ -1,0 +1,60 @@
+- name: Set git user.name for the current user account
+  become: yes
+  become_user: roland
+  git_config:
+        name: user.name
+        scope: global
+        value: "{{git_user_name}}"
+
+- name: Set git user.email for the current user account
+  become: yes
+  become_user: roland
+  git_config:
+        name: user.email
+        scope: global
+        value: "{{git_user_email}}"
+
+- name: Add git alias for commit -m
+  git_config:
+        name: alias.cm
+        value: commit -m
+
+- name: Add git alias for diff --staged
+  git_config:
+        name: alias.ds
+        value: diff --staged
+
+- name: Add git alias for diff
+  git_config:
+        name: alias.df
+        value: diff
+
+- name: Add git alias for commit --no-edit
+  git_config:
+        name: alias.cf
+        value: commit --no-edit
+
+- name: Add git alias for status
+  git_config:
+        name: alias.st
+        value: status
+
+- name: Add git alias for checkout
+  git_config:
+        name: alias.co
+        value: checkout
+
+- name: Add git alias for checkout -B
+  git_config:
+        name: alias.cb
+        value: checkout -B
+
+- name: Add git alias for fetch --prune
+  git_config:
+        name: alias.prune
+        value: fetch --prune
+
+- name: Update git default editor to VSCode
+  git_config:
+        name: core.editor
+        value: code
