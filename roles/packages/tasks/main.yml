@@ -10,6 +10,11 @@
     name: gnome-tweak-tool
     state: latest
 
+- name: Install the base for gnome shell extensions
+  apt:
+      name: chrome-gnome-shell
+      state: latest
+
 - name: Install pomodoro timer
   apt:
     name: gnome-shell-pomodoro
