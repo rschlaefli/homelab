@@ -11,6 +11,7 @@
 - Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 - Bootstrap
     - Make nemo the default file explorer: https://itsfoss.com/install-nemo-file-manager-ubuntu/
+    - Add nemo to startup applications `/usr/bin/nemo-desktop`
 - [XPS 15] Setup unvervolting with https://github.com/georgewhewell/undervolt
   - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
   - Setup autostart with service and timer as described in README
