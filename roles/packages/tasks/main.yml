@@ -33,6 +33,11 @@
           - caffeine
           - caffeine-indicator
 
+- name: Install filezilla
+  apt:
+      name: filezilla
+      state: latest
+
 - name: Install snaps
   shell: snap install {{item}}
   with_items:

@@ -1,37 +1,48 @@
 # Homelab
 
-## Dell XPS 15 9570 - Ubuntu 18.04
-
-- Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
-- Bootstrap
-    - Make nemo the default file explorer: https://itsfoss.com/install-nemo-file-manager-ubuntu/
-- [XPS 15] Setup unvervolting with https://github.com/georgewhewell/undervolt
-  - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
-  - Setup autostart with service and timer as described in README
-- Install Fira Code Retina from https://github.com/tonsky/FiraCode
-- Install Anaconda from https://www.anaconda.com/distribution/#download-section
-  - Use `/opt/anaconda3` as path
-  - Add to /etc/profile path to make globally accessible
-- Initialize Git configuration
-  - `git config --global user.email "rolandschlaefli@gmail.com"`
-  - `git config --global user.name "Roland Schlaefli"`
-- Install GitKraken from https://snapcraft.io/gitkraken
-- Install jrnl from http://jrnl.sh/installation.html
-  - `pip install --user jrnl`
-- Install docker-compose
-  - `curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose`
-  - `chmod +x /usr/local/bin/docker-compose`
-- Install tldr from https://github.com/tldr-pages/tldr
-- Setup Gnome extensions 
-  - Install night slider extension from https://extensions.gnome.org/extension/1276/night-light-slider/
-
-## Dell XPS 15 9570 - Windows 10
-
-### Partitioning
+## Partitioning
 
 1. C: System (Windows)
 2. D: Data (Shared)
 3. System (Ubuntu)
+
+## Dell XPS 15 9570 - Ubuntu 18.04
+
+- Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+- Make nemo the default file explorer
+  - https://itsfoss.com/install-nemo-file-manager-ubuntu/
+  - Add nemo to startup applications `/usr/bin/nemo-desktop`
+- Install Fira Code Retina from https://github.com/tonsky/FiraCode
+- Install Anaconda from https://www.anaconda.com/distribution/#download-section
+  - Use `/opt/anaconda3` as path
+  - Add to /etc/profile path to make globally accessible
+- [Ansible] Initialize Git configuration
+  - `git config --global user.email "rolandschlaefli@gmail.com"`
+  - `git config --global user.name "Roland Schlaefli"`
+- [Ansible] Install GitKraken from https://snapcraft.io/gitkraken
+- Install jrnl from http://jrnl.sh/installation.html
+  - `pip install --user jrnl`
+- [Ansible] Install docker-compose
+  - `curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose`
+  - `chmod +x /usr/local/bin/docker-compose`
+- Install tldr from https://github.com/tldr-pages/tldr
+- Setup Gnome extensions 
+  - Install night slider extension from https://extensions.gnome.org/extension/1276/night-light-slider/ or from software store
+- Setup startup applications
+  - Albert
+  - Bitwarden `sh -c "sleep 60s;/snap/bin/bitwarden"`
+  - Cacher `sh -c "sleep 90s;/snap/bin/cacher"`
+  - Caffeine `/usr/bin/caffeine` and Caffeine Indicator `/usr/bin/caffeine-indicator`
+  - Guake Terminal `sh -c "sleep 30s;guake"`
+  - Nextcloud
+  - Pomodoro `gnome-pomodoro --no-default-window --start-stop`
+- XPS 15
+  - Setup unvervolting with https://github.com/georgewhewell/undervolt
+    - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
+    - Setup autostart with service and timer as described in README
+
+
+## Dell XPS 15 9570 - Windows 10
 
 ### Drivers
 
@@ -43,6 +54,7 @@
   - https://www.intel.com/content/www/us/en/support/articles/000005634/network-and-i-o/wireless-networking.html
 - Install latest Intel and Nvidia drivers
   - https://downloadcenter.intel.com/download/27988/Intel-Graphics-Driver-for-Windows-10
+    - Ensure that older version is used for compatibility (prevention of black blinking problem)
   - https://www.nvidia.com/en-us/geforce/geforce-experience/
 
 ### Software Installations(Chocolatey)
