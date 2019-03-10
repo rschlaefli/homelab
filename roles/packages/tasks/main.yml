@@ -6,13 +6,13 @@
   become: yes
   become_user: roland
   file:
-    path: /home/roland/bin
-    state: directory
+      path: /home/roland/bin
+      state: directory
 
 - name: Install the gnome tweaks application
   apt:
-    name: gnome-tweak-tool
-    state: latest
+      name: gnome-tweak-tool
+      state: latest
 
 - name: Install the base for gnome shell extensions
   apt:
@@ -21,22 +21,31 @@
 
 - name: Install pomodoro timer
   apt:
-    name: gnome-shell-pomodoro
-    state: latest
+      name: gnome-shell-pomodoro
+      state: latest
+
+- name: Install caffeine
+  apt:
+      name: "{{packages}}"
+      state: latest
+  vars:
+      packages:
+          - caffeine
+          - caffeine-indicator
 
 - name: Install snaps
   shell: snap install {{item}}
   with_items:
-    - gitkraken
-    - spotify
-    - postman
-    - redis-desktop-manager
-    - chromium
-    - mailspring
-    - cacher
-    - writefull
-    - bitwarden
-    - bw
+      - gitkraken
+      - spotify
+      - postman
+      - redis-desktop-manager
+      - chromium
+      - mailspring
+      - cacher
+      - writefull
+      - bitwarden
+      - bw
 
 - name: Install git-standup
   shell: snap install git-standup --edge

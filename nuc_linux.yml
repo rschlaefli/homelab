@@ -3,7 +3,7 @@
   roles:
     - bootstrap
     - packages
-    -  git
+    - git
     - docker
     - node
     - java
@@ -11,6 +11,6 @@
     - r
     - vpn
   vars:
+    account_name: roland
     git_user_name: Roland Schlaefli
     git_user_email: rolandschlaefli@gmail.com
-    
