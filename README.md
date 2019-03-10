@@ -1,5 +1,11 @@
 # Homelab
 
+## Partitioning
+
+1. C: System (Windows)
+2. D: Data (Shared)
+3. System (Ubuntu)
+
 ## Dell XPS 15 9570 - Ubuntu 18.04
 
 - Install Ansible from https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
@@ -23,15 +29,18 @@
   - `chmod +x /usr/local/bin/docker-compose`
 - Install tldr from https://github.com/tldr-pages/tldr
 - Setup Gnome extensions 
-  - Install night slider extension from https://extensions.gnome.org/extension/1276/night-light-slider/
+  - Install night slider extension from https://extensions.gnome.org/extension/1276/night-light-slider/ or from software store
+- Setup startup applications
+  - Albert
+  - Bitwarden `sh -c "sleep 60s;/snap/bin/bitwarden"`
+  - Cacher `sh -c "sleep 90s;/snap/bin/cacher"`
+  - Caffeine `/usr/bin/caffeine` and Caffeine Indicator `/usr/bin/caffeine-indicator`
+  - Guake Terminal `sh -c "sleep 30s;guake"`
+  - Nextcloud
+  - Pomodoro `gnome-pomodoro --no-default-window --start-stop`
+
 
 ## Dell XPS 15 9570 - Windows 10
-
-### Partitioning
-
-1. C: System (Windows)
-2. D: Data (Shared)
-3. System (Ubuntu)
 
 ### Drivers
 
@@ -43,6 +52,7 @@
   - https://www.intel.com/content/www/us/en/support/articles/000005634/network-and-i-o/wireless-networking.html
 - Install latest Intel and Nvidia drivers
   - https://downloadcenter.intel.com/download/27988/Intel-Graphics-Driver-for-Windows-10
+    - Ensure that older version is used for compatibility (prevention of black blinking problem)
   - https://www.nvidia.com/en-us/geforce/geforce-experience/
 
 ### Software Installations(Chocolatey)
