@@ -1,74 +1,63 @@
-# TODO: make username configurable
 # TODO: make snaps configurable
 # TODO: fix station install overriding upgrades
 
 - name: Ensure that a ~/bin directory is available
   become: yes
-  become_user: roland
+  become_user: "{{account_name}}"
   file:
-        path: /home/roland/bin
-        state: directory
+    path: "/home/{{account_name}}/bin"
+    state: directory
 
 - name: Install the gnome tweaks application
   apt:
-        name: gnome-tweak-tool
-        state: latest
+    name: gnome-tweak-tool
+    state: latest
 
 - name: Install the base for gnome shell extensions
   apt:
-        name: chrome-gnome-shell
-        state: latest
+    name: chrome-gnome-shell
+    state: latest
 
 - name: Install pomodoro timer
   apt:
-        name: gnome-shell-pomodoro
-        state: latest
+    name: gnome-shell-pomodoro
+    state: latest
 
 - name: Install caffeine
   apt:
-        name: caffeine
-        state: latest
+    name: caffeine
+    state: latest
 
 - name: Install filezilla
   apt:
-        name: filezilla
-        state: latest
+    name: filezilla
+    state: latest
 
 - name: Install CopyQ
   apt:
-        name: "{{packages}}"
-        state: latest
+    name: "{{packages}}"
+    state: latest
   vars:
-        packages:
-              - copyq
-              - copyq-plugins
+    packages:
+      - copyq
+      - copyq-plugins
 
 - name: Install snaps
   shell: snap install {{item}}
   with_items:
-        - gitkraken
-        - spotify
-        - postman
-        - redis-desktop-manager
-        - chromium
-        - mailspring
-        - cacher
-        - writefull
-        - bitwarden
-        - bw
+    - gitkraken
+    - spotify
+    - postman
+    - redis-desktop-manager
+    - chromium
+    - mailspring
+    - cacher
+    - writefull
+    - bitwarden
+    - bw
 
 - name: Install git-standup
   shell: snap install git-standup --edge
-
-# - name: Install Station
-# become: yes
-# become_user: roland
-# get_url:
-# url: https://dl.getstation.com/download/linux_64?filetype=AppImage
-# dest: /home/roland/bin
-# mode: 0700
-# args:
-# creates: "{{ ansible_env.HOME }}/bin/browserX-1.38.1-x86_64.AppImage"
 
 - include_tasks: vscode.yml
 - include_tasks: neovim.yml
@@ -77,4 +66,3 @@
 - include_tasks: albert.yml
 - include_tasks: nextcloud.yml
 - include_tasks: cleaner.yml
-# - include_tasks: flux.yml

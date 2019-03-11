@@ -3,8 +3,7 @@
 
 - name: Install JetBrains Toolbox
   become: yes
-  become_user: roland
+  become_user: "{{account_name}}"
   unarchive:
-    src: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.13.4801.tar.gz"
-    dest: "/home/bin"
-  
+      src: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.13.4801.tar.gz"
+      dest: "/home/{{account_name}}/bin/station/"
