@@ -4,15 +4,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run playbook (XPS)",
+      "label": "Run setup playbook",
       "type": "shell",
-      "command": "./xps_linux.sh",
-      "problemMatcher": []
-    },
-    {
-      "label": "Run playbook (NUC)",
-      "type": "shell",
-      "command": "./nuc_linux.sh",
+      "command": "./setup_linux.sh",
       "problemMatcher": []
     }
   ]
