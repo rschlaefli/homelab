@@ -1,3 +1,5 @@
+# TODO: albert settings?
+
 - name: Add the albert repository key for 18.04
   apt_key:
     url: "https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_18.04/Release.key"
@@ -26,5 +28,3 @@
   apt:
     name: albert
     state: latest
-
-# TODO: albert settings?

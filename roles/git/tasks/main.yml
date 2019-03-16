@@ -1,17 +1,17 @@
 - name: Install the latest version of git
   apt:
-    name: git
-    state: latest
+      name: git
+      state: latest
 
 # https://askubuntu.com/questions/773455/what-is-the-correct-way-to-use-git-with-gnome-keyring-and-https-repos
 - name: Install libsecret dependencies
   apt:
-    name: "{{packages}}"
-    state: latest
+      name: "{{packages}}"
+      state: latest
   vars:
-    packages:
-      - libsecret-1-0
-      - libsecret-1-dev
+      packages:
+          - libsecret-1-0
+          - libsecret-1-dev
 
 - name: Build the credential helper
   shell: cd /usr/share/doc/git/contrib/credential/libsecret && make
@@ -20,94 +20,94 @@
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: credential.helper
-    scope: global
-    value: /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+      name: credential.helper
+      scope: global
+      value: /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 
 - name: Set git user.name for the current user account
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: user.name
-    scope: global
-    value: "{{git_user_name}}"
+      name: user.name
+      scope: global
+      value: "{{git_user_name}}"
 
 - name: Set git user.email for the current user account
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: user.email
-    scope: global
-    value: "{{git_user_email}}"
+      name: user.email
+      scope: global
+      value: "{{git_user_email}}"
 
 - name: Add git alias for commit -m
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.cm
-    scope: global
-    value: commit -m
+      name: alias.cm
+      scope: global
+      value: commit -m
 
 - name: Add git alias for diff --staged
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.ds
-    scope: global
-    value: diff --staged
+      name: alias.ds
+      scope: global
+      value: diff --staged
 
 - name: Add git alias for diff
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.df
-    scope: global
-    value: diff
+      name: alias.df
+      scope: global
+      value: diff
 
 - name: Add git alias for commit --no-edit
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.cf
-    scope: global
-    value: commit --no-edit
+      name: alias.cf
+      scope: global
+      value: commit --no-edit
 
 - name: Add git alias for status
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.st
-    scope: global
-    value: status
+      name: alias.st
+      scope: global
+      value: status
 
 - name: Add git alias for checkout
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.co
-    scope: global
-    value: checkout
+      name: alias.co
+      scope: global
+      value: checkout
 
 - name: Add git alias for checkout -B
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.cb
-    scope: global
-    value: checkout -B
+      name: alias.cb
+      scope: global
+      value: checkout -B
 
 - name: Add git alias for fetch --prune
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: alias.prune
-    scope: global
-    value: fetch --prune
+      name: alias.prune
+      scope: global
+      value: fetch --prune
 
-- name: Update git default editor to VSCode
+- name: Update git default editor to nano
   become: yes
   become_user: "{{account_name}}"
   git_config:
-    name: core.editor
-    scope: global
-    value: code
+      name: core.editor
+      scope: global
+      value: nano

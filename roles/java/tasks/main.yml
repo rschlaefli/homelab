@@ -2,20 +2,20 @@
 
 - name: Install maven
   apt:
-        name: maven
-        state: latest
+    name: maven
+    state: latest
 
 - name: Install JDK 8
   apt:
-        name: openjdk-8-jdk
-        state: latest
+    name: openjdk-8-jdk
+    state: latest
 
 - name: Install JDK 10
   apt:
-        name: openjdk-11-jdk
-        state: latest
+    name: openjdk-11-jdk
+    state: latest
 
 - name: Make JDK 8 the default executor
   alternatives:
-        name: java
-        path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+    name: java
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java

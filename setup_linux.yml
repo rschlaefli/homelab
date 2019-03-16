@@ -13,5 +13,34 @@
     - latex
   vars:
     account_name: roland
+
     git_user_name: Roland Schlaefli
     git_user_email: rolandschlaefli@gmail.com
+
+    install_packages:
+      - pomodoro
+      - caffeine
+      - filezilla
+      - copyq
+      - vscode
+      - nextcloud
+      - neovim
+      - mendeley
+      - cleaner
+      - albert
+      - git-standup
+
+    install_snaps:
+      - gitkraken
+      - spotify
+      - postman
+      - redis-desktop-manager
+      - chromium
+      - mailspring
+      - cacher
+      - writefull
+      - bitwarden
+      - bw
+
+    install_additional:
+      # - ...

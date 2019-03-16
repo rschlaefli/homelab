@@ -1,4 +1,4 @@
 - name: Install texlive
   apt:
-    name: texlive-full
-    state: latest
+      name: texlive-full
+      state: latest

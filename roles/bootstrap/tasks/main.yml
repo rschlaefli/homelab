@@ -1,45 +1,45 @@
 - name: Update APT package cache
   apt:
-        update_cache: yes
-        cache_valid_time: 3600
+    update_cache: yes
+    cache_valid_time: 3600
 
 - name: Upgrade all installed APT packages (in safe mode)
   apt:
-        upgrade: safe
+    upgrade: safe
 
 - name: Install basic system management packages
   apt:
-        name: "{{ packages }}"
-        state: latest
+    name: "{{ packages }}"
+    state: latest
   vars:
-        packages:
-              - nano
-              - htop
+    packages:
+      - nano
+      - htop
 
 - name: Install exFAT dependencies
   apt:
-        name: "{{ packages }}"
-        state: latest
+    name: "{{ packages }}"
+    state: latest
   vars:
-        packages:
-              - exfat-fuse
-              - exfat-utils
+    packages:
+      - exfat-fuse
+      - exfat-utils
 
 - name: Install the nemo file explorer
   apt:
-        name: nemo
-        state: latest
+    name: nemo
+    state: latest
 
 - name: Install the guake terminal
   apt:
-        name: "{{packages}}"
-        state: latest
+    name: "{{packages}}"
+    state: latest
   vars:
-        packages:
-              - guake
-              - guake-indicator
+    packages:
+      - guake
+      - guake-indicator
 
 - name: Install UFW GUI
   apt:
-        name: gufw
-        state: latest
+    name: gufw
+    state: latest

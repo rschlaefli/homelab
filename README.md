@@ -23,24 +23,24 @@
 - Install jrnl from http://jrnl.sh/installation.html
   - `pip install --user jrnl`
 - [Ansible] Install docker-compose
-  - `curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose`
+  - `curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m`-o /usr/local/bin/docker-compose`
   - `chmod +x /usr/local/bin/docker-compose`
 - Install tldr from https://github.com/tldr-pages/tldr
-- Setup Gnome extensions 
-  - Install night slider extension from https://extensions.gnome.org/extension/1276/night-light-slider/ or from software store
+- Setup Gnome extensions
+  - Install night slider extension from software store
 - Setup startup applications
-  - Albert
-  - Bitwarden `sh -c "sleep 60s;/snap/bin/bitwarden"`
-  - Cacher `sh -c "sleep 90s;/snap/bin/cacher"`
+  - Albert `albert`
+  - Bitwarden `/snap/bin/bitwarden`
   - Caffeine `/usr/bin/caffeine` and Caffeine Indicator `/usr/bin/caffeine-indicator`
-  - Guake Terminal `sh -c "sleep 30s;guake"`
-  - Nextcloud
-  - Pomodoro `gnome-pomodoro --no-default-window --start-stop`
+  - CopyQ `/usr/bin/copyq`
+  - Guake Terminal `guake`
+  - Nemo desktop `/usr/bin/nemo-desktop`
+  - Nextcloud `/usr/bin/nextcloud`
+  - Pomodoro `/bin/sh -c "sleep 30s;gnome-pomodoro --no-default-window"`
 - XPS 15
   - Setup unvervolting with https://github.com/georgewhewell/undervolt
     - `undervolt --core -115.234375 --gpu -41.9921875 --cache -115.234375`
-    - Setup autostart with service and timer as described in README
-
+    - Setup autostart with service and timer as described in README of the linked repository
 
 ## Dell XPS 15 9570 - Windows 10
 
@@ -63,13 +63,12 @@
 - Install packages with chocolatey
   - choco install firefox googlechrome 1password vscode yubico-authenticator evernote vlc 7zip adobereader git.install nodejs.install treesizefree gimp yarn f.lux postman jetbrainstoolbox
 - Setup firefox sync for extensions synchronization
-- Link 1Password with the schlaefli.1password.com family account (ensure correct time for 2FA)
-- Install the 1Password browser addon from https://1password.com/browsers/
 - Adjust settings for f.lux (3400/3100/2800)
 - Setup sync with VSCode
 
 ### Software Installations (Other)
 
+- Setup Bitwarden
 - Install Visual C++ 2013 Redistributable from https://www.microsoft.com/en-us/download/details.aspx?id=40784
 - Install Synology Drive and Backup from https://www.synology.com/en-global/support/download/DS713+#utilities
 - Setup ThrottleStop from https://www.techpowerup.com/download/techpowerup-throttlestop/

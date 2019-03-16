@@ -5,10 +5,10 @@
 
 - name: Add the flux repository
   apt_repository:
-      repo: ppa:nathan-renniewaldock/flux
-      state: present
+        repo: ppa:nathan-renniewaldock/flux
+        state: present
 
 - name: Install fluxgui
   apt:
-      name: fluxgui
-      state: latest
+        name: fluxgui
+        state: latest
