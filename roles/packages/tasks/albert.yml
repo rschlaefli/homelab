@@ -20,7 +20,7 @@
 
 - name: Add the albert repository for 18.10
   apt_repository:
-    repo: deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.04/ /
+    repo: deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.10/ /
     state: present
   when: ansible_distribution_release == 'cosmic'
 

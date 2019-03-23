@@ -6,45 +6,45 @@
   become: yes
   become_user: "{{account_name}}"
   file:
-        path: "/home/{{account_name}}/bin"
-        state: directory
+    path: "/home/{{account_name}}/bin"
+    state: directory
 
 - name: Install the gnome tweaks application
   apt:
-        name: gnome-tweak-tool
-        state: latest
+    name: gnome-tweak-tool
+    state: latest
 
 - name: Install the base for gnome shell extensions
   apt:
-        name: chrome-gnome-shell
-        state: latest
+    name: chrome-gnome-shell
+    state: latest
 
 - name: Install pomodoro timer
   apt:
-        name: gnome-shell-pomodoro
-        state: latest
+    name: gnome-shell-pomodoro
+    state: latest
   when: "'pomodoro' in install_packages"
 
 - name: Install caffeine
   apt:
-        name: caffeine
-        state: latest
+    name: caffeine
+    state: latest
   when: "'caffeine' in install_packages"
 
 - name: Install filezilla
   apt:
-        name: filezilla
-        state: latest
+    name: filezilla
+    state: latest
   when: "'filezilla' in install_packages"
 
 - name: Install CopyQ
   apt:
-        name: "{{packages}}"
-        state: latest
+    name: "{{packages}}"
+    state: latest
   vars:
-        packages:
-              - copyq
-              - copyq-plugins
+    packages:
+      - copyq
+      - copyq-plugins
   when: "'copyq' in install_packages"
 
 - include_tasks: albert.yml
@@ -61,6 +61,8 @@
   when: "'synology' in install_packages"
 - include_tasks: vscode.yml
   when: "'vscode' in install_packages"
+- include_tasks: keybase.yml
+  when: "'keybase' in install_packages"
 
 - name: Install git-standup
   shell: snap install git-standup --edge
@@ -72,6 +74,6 @@
 
 - name: Install additional packages
   apt:
-        name: "{{install_additional}}"
-        state: latest
+    name: "{{install_additional}}"
+    state: latest
   when: install_additional is defined

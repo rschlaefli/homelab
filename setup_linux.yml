@@ -29,6 +29,7 @@
       - cleaner
       - albert
       - git-standup
+      - keybase
 
     install_snaps:
       - gitkraken
