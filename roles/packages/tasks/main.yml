@@ -51,6 +51,8 @@
   when: "'albert' in install_packages"
 - include_tasks: cleaner.yml
   when: "'cleaner' in install_packages"
+- include_tasks: keybase.yml
+  when: "'keybase' in install_packages"
 - include_tasks: mendeley.yml
   when: "'mendeley' in install_packages"
 - include_tasks: neovim.yml
@@ -61,8 +63,8 @@
   when: "'synology' in install_packages"
 - include_tasks: vscode.yml
   when: "'vscode' in install_packages"
-- include_tasks: keybase.yml
-  when: "'keybase' in install_packages"
+- include_tasks: zsh.yml
+  when: "'zsh' in install_packages"
 
 - name: Install git-standup
   shell: snap install git-standup --edge
