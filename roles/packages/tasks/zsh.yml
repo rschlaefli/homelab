@@ -1,24 +1,12 @@
 - name: Install zsh
   apt:
-      name: zsh
-      state: latest
+    name: zsh
+    state: latest
 
-- name: Download the oh-my-zsh script
+- name: Install antigen
   become: yes
   become_user: "{{account_name}}"
   get_url:
-      url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-      dest: /tmp/oh-my-zsh.sh
-      mode: 0700
-
-- name: Execute the oh-my-zsh script
-  become: yes
-  become_user: "{{account_name}}"
-  shell: /tmp/oh-my-zsh.sh
-
-- name: Remove the oh-my-zsh script
-  become: yes
-  become_user: "{{account_name}}"
-  file:
-      path: /tmp/oh-my-zsh.sh
-      state: absent
+    url: git.io/antigen
+    dest: ~/.antigen.zsh
+    mode: 0700
