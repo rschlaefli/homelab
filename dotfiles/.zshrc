@@ -35,3 +35,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . /home/roland/anaconda3/etc/profile.d/conda.sh
+# . /opt/anaconda3/etc/profile.d/conda.sh
