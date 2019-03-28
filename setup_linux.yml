@@ -42,6 +42,7 @@
       - writefull
       - bitwarden
       - bw
+      - gravit-designer
 
     install_additional:
       # - ...

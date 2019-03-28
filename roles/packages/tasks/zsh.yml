@@ -1,12 +1,12 @@
 - name: Install zsh
   apt:
-    name: zsh
-    state: latest
+      name: zsh
+      state: latest
 
 - name: Install antigen
   become: yes
   become_user: "{{account_name}}"
   get_url:
-    url: git.io/antigen
-    dest: ~/.antigen.zsh
-    mode: 0700
+      url: https://git.io/antigen
+      dest: ~/.antigen.zsh
+      mode: 0700
