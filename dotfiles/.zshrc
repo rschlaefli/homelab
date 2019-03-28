@@ -1,3 +1,7 @@
+export TERM="xterm-256color"
+export LANG=en_US.UTF-8
+export EDITOR='NANO'
+
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
 # load antigen
@@ -20,9 +24,6 @@ antigen bundle python
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
-
-export LANG=en_US.UTF-8
-export EDITOR='NANO'
 
 # add rust to the path
 PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
