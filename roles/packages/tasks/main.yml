@@ -19,6 +19,14 @@
     name: chrome-gnome-shell
     state: latest
 
+- name: Install microsoft core fonts
+  apt:
+    name: ttf-mscorefonts-installer
+    state: latest
+  environment:
+    ACCEPT_EULA: "y"
+  when: "'microsoft-fonts' in install_packages"
+
 - name: Install pomodoro timer
   apt:
     name: gnome-shell-pomodoro

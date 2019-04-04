@@ -30,6 +30,7 @@
       - git-standup
       - keybase
       - zsh
+      - microsoft-fonts
 
     install_snaps:
       - gitkraken
