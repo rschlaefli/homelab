@@ -2,23 +2,28 @@
 
 - name: Add the R repository key
   apt_key:
-      id: E298A3A825C0D65DFD57CBB651716619E084DAB9
-      keyserver: keyserver.ubuntu.com
-      state: present
+        id: E298A3A825C0D65DFD57CBB651716619E084DAB9
+        keyserver: keyserver.ubuntu.com
+        state: present
 
 - name: Add the apt_repository repository
   apt_repository:
-      repo: deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
-      state: present
+        repo: deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
+        state: present
 
 - name: Install R
   apt:
-      name: r-base
-      state: latest
+        name: r-base
+        state: latest
 
 - name: Install RStudio Desktop
   apt:
-      deb: https://download1.rstudio.org/rstudio-xenial-{{rstudio_version}}-amd64.deb
-      state: present
+        deb: https://download1.rstudio.org/rstudio-xenial-{{rstudio_version}}-amd64.deb
+        state: present
   vars:
-      rstudio_version: 1.1.463
+        rstudio_version: 1.1.463
+
+- name: Install libcurl dependency (for package compilations)
+  apt:
+        name: libcurl4-openssl-dev
+        state: latest

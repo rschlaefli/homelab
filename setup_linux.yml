@@ -46,4 +46,4 @@
       - gravit-designer
 
     install_additional:
-      # - ...
+      - pdfshuffler
