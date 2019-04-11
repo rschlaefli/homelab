@@ -2,7 +2,13 @@ export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 export EDITOR='NANO'
 
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+# enable firefox hardware acceleration
+export MOZ_ACCELERATED=1 MOZ_WEBRENDER=1
+
+# load fixed for tilix VTE
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
 
 # load antigen
 source ~/.antigen.zsh
@@ -11,11 +17,12 @@ source ~/.antigen.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/
 
 # setup theme
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # setup bundles
-antigen bundle ssh-agent
-antigen bundle tmuxinator
+# antigen bundle ssh-agent
+# antigen bundle tmuxinator
 antigen bundle git
 antigen bundle node
 antigen bundle npm
@@ -36,4 +43,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . /home/roland/anaconda3/etc/profile.d/conda.sh
-# . /opt/anaconda3/etc/profile.d/conda.sh
