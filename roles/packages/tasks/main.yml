@@ -33,7 +33,7 @@
   apt:
     name: gnome-shell-pomodoro
     state: latest
-  when: "'pomodoro' in install_packages"
+  when: "'pomodoro' in install_packages and (ansible_distribution_release == 'bionic' or ansible_distribution_release == 'cosmic')"
 
 - name: Install caffeine
   apt:
@@ -60,7 +60,7 @@
 - include_tasks: albert.yml
   when: "'albert' in install_packages"
 - include_tasks: cleaner.yml
-  when: "'cleaner' in install_packages"
+  when: "'cleaner' in install_packages and (ansible_distribution_release == 'bionic' or ansible_distribution_release == 'cosmic')"
 - include_tasks: keybase.yml
   when: "'keybase' in install_packages"
 - include_tasks: mendeley.yml

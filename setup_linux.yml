@@ -14,6 +14,9 @@
   vars:
     account_name: roland
 
+    # cpu_uv: 130
+    # gpu_uv: 45
+
     git_user_name: Roland Schlaefli
     git_user_email: rolandschlaefli@gmail.com
 
@@ -44,6 +47,3 @@
 
     install_additional:
       - pdfshuffler
-
-    cpu_uv: 130
-    gpu_uv: 45

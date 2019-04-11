@@ -1,9 +1,9 @@
 - name: Add the ubuntu-cleaner repository
   apt_repository:
-      repo: ppa:gerardpuig/ppa
-      state: present
+        repo: ppa:gerardpuig/ppa
+        state: present
 
 - name: Install ubuntu-cleaner
   apt:
-      name: ubuntu-cleaner
-      state: latest
+        name: ubuntu-cleaner
+        state: latest
