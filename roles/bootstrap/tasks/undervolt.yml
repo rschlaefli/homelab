@@ -1,0 +1,21 @@
+- name: Install the undervolt package
+  pip:
+    name: undervolt
+    state: latest
+    executable: pip3
+
+- name: Create a service for undervolting
+  template:
+    src: dotfiles/undervolt.service
+    dest: /etc/systemd/system/undervolt.service
+
+- name: Install a timer for the undervolt service
+  template:
+    src: dotfiles/undervolt.timer
+    dest: /etc/systemd/system/undervolt.timer
+
+- name: Start the timer for the undervolt service
+  systemd:
+    state: started
+    name: undervolt.timer
+    daemon_reload: yes

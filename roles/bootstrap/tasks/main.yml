@@ -31,16 +31,15 @@
     name: nemo
     state: latest
 
-- name: Install the guake terminal
+- name: Install the tilix terminal
   apt:
-    name: "{{packages}}"
+    name: tilix
     state: latest
-  vars:
-    packages:
-      - guake
-      - guake-indicator
 
 - name: Install UFW GUI
   apt:
     name: gufw
     state: latest
+
+- include_tasks: undervolt.yml
+  when: cpu_uv is defined and gpu_uv is defined

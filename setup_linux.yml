@@ -30,7 +30,6 @@
       - git-standup
       - keybase
       - zsh
-      - microsoft-fonts
 
     install_snaps:
       - gitkraken
@@ -38,8 +37,6 @@
       - postman
       - redis-desktop-manager
       - chromium
-      - mailspring
-      - cacher
       - writefull
       - bitwarden
       - bw
@@ -47,3 +44,6 @@
 
     install_additional:
       - pdfshuffler
+
+    cpu_uv: 130
+    gpu_uv: 45
