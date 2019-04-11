@@ -1,6 +1,6 @@
 export TERM="xterm-256color"
 export LANG=en_US.UTF-8
-export EDITOR='NANO'
+export EDITOR='nano'
 
 # enable firefox hardware acceleration
 export MOZ_ACCELERATED=1 MOZ_WEBRENDER=1
