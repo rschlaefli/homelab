@@ -1,6 +1,8 @@
-# TODO: make snaps configurable
 # TODO: add working station install
 # TODO: setup startup applications
+
+- include_tasks: zsh.yml
+  when: "'zsh' in install_packages"
 
 - name: Ensure that a ~/bin directory is available
   become: yes
