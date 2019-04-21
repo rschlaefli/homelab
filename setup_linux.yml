@@ -21,7 +21,7 @@
     git_user_email: rolandschlaefli@gmail.com
 
     install_packages:
-      - pomodoro
+      - pomodone
       - caffeine
       - filezilla
       - copyq
@@ -31,8 +31,8 @@
       - cleaner
       - albert
       - git-standup
-      - keybase
       - zsh
+      # - keybase
 
     install_snaps:
       - gitkraken

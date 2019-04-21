@@ -69,6 +69,8 @@
   when: "'neovim' in install_packages"
 - include_tasks: nextcloud.yml
   when: "'nextcloud' in install_packages"
+- include_tasks: pomodone.yml
+  when: "'pomodone' in install_packages"
 - include_tasks: synology.yml
   when: "'synology' in install_packages"
 - include_tasks: vscode.yml
