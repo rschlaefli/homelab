@@ -6,7 +6,7 @@
     - git
     - docker
     - node
-    - java
+    # - java
     - scala
     - r
     - vpn

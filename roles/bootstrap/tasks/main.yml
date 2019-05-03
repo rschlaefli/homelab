@@ -16,6 +16,7 @@
       - nano
       - htop
       - tmux
+      - build-essential
 
 - name: Install exFAT dependencies
   apt:
