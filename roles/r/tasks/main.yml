@@ -31,3 +31,4 @@
     packages:
       - libcurl4-openssl-dev # -> ... package
       - libgmp3-dev # -> HH package
+      - libmpfr-dev # -> HH package
