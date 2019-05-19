@@ -1,0 +1,12 @@
+- name: Install flatpak
+  apt:
+    name: flatpak
+    state: latest
+
+- name: Install the flatpak gnome integration
+  apt:
+    name: gnome-software-plugin-flatpak
+    state: latest
+
+- name: Add the flatpak flathub repository
+  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

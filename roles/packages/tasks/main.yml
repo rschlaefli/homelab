@@ -1,6 +1,8 @@
 # TODO: add working station install
 # TODO: setup startup applications
 
+- include_tasks: flatpak.yml
+
 - include_tasks: zsh.yml
   when: "'zsh' in install_packages"
 
