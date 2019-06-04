@@ -7,7 +7,7 @@ export MOZ_ACCELERATED=1 MOZ_WEBRENDER=1
 
 # load fixed for tilix VTE
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
+        source /etc/profile.d/vte-2.91.sh
 fi
 
 # load antigen
@@ -18,6 +18,11 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 
 # setup theme
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_DIR_HOME_BACKGROUND='darkturquoise'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='darkturquoise'
+POWERLEVEL9K_DIR_ETC_BACKGROUND='darkturquoise'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='darkturquoise'
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # setup bundles
