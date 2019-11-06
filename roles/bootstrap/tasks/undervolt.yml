@@ -4,10 +4,15 @@
     state: latest
     executable: pip3
 
-- name: Create a service for undervolting
+- name: Create a service for undervolting on startup
   template:
     src: dotfiles/undervolt.service
     dest: /etc/systemd/system/undervolt.service
+
+- name: Create a service for undervolting on resume
+  template:
+    src: dotfiles/undervolt-resume.service
+    dest: /etc/systemd/system/undervolt-resume.service
 
 - name: Install a timer for the undervolt service
   template:
