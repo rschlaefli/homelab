@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=RescueTime
+Exec=/usr/bin/rescuetime
+Type=Application

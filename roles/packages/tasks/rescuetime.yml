@@ -2,3 +2,10 @@
   apt:
     deb: https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
     state: present
+
+- name: Install rescuetime as a startup application
+  become: yes
+  become_user: '{{account_name}}'
+  copy:
+    src: rescuetime.desktop
+    dest: '/home/{{account_name}}/.config/autostart/rescuetime.desktop'
