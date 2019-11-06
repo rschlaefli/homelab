@@ -31,6 +31,7 @@
       - git-standup
       - zsh
       - keybase
+      - rescuetime
 
     install_snaps:
       # - gitkraken

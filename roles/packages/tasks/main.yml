@@ -78,6 +78,8 @@
   when: "'vscode' in install_packages"
 - include_tasks: zsh.yml
   when: "'zsh' in install_packages"
+- include_tasks: rescuetime.yml
+  when: "'rescuetime' in install_packages"
 
 - name: Install git-standup
   shell: snap install git-standup --edge

@@ -1,0 +1,4 @@
+- name: Install rescuetime
+  apt:
+    deb: https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
+    state: present
