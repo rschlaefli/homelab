@@ -7,15 +7,15 @@
     - docker
     - node
     # - java
-    - scala
-    - r
+    # - scala
+    # - r
     - vpn
     - latex
   vars:
     account_name: roland
 
-    # cpu_uv: 130
-    # gpu_uv: 45
+    cpu_uv: 130
+    gpu_uv: 45
 
     git_user_name: Roland Schlaefli
     git_user_email: rolandschlaefli@gmail.com
@@ -24,20 +24,18 @@
       - pomodone
       - caffeine
       - filezilla
-      - copyq
       - vscode
-      - nextcloud
       - neovim
       - cleaner
       - albert
       - git-standup
       - zsh
-      # - keybase
+      - keybase
 
     install_snaps:
-      - gitkraken
+      # - gitkraken
       - spotify
-      - postman
+      # - postman
       - redis-desktop-manager
       - chromium
       - writefull
