@@ -1,4 +1,3 @@
-# TODO: add working station install
 # TODO: setup startup applications
 
 - include_tasks: flatpak.yml
@@ -8,9 +7,9 @@
 
 - name: Ensure that a ~/bin directory is available
   become: yes
-  become_user: "{{account_name}}"
+  become_user: '{{account_name}}'
   file:
-    path: "/home/{{account_name}}/bin"
+    path: '/home/{{account_name}}/bin'
     state: directory
 
 - name: Install the gnome tweaks application
@@ -28,7 +27,7 @@
     name: ttf-mscorefonts-installer
     state: latest
   environment:
-    ACCEPT_EULA: "y"
+    ACCEPT_EULA: 'y'
   when: "'microsoft-fonts' in install_packages"
 
 - name: Install pomodoro timer
@@ -51,7 +50,7 @@
 
 - name: Install CopyQ
   apt:
-    name: "{{packages}}"
+    name: '{{packages}}'
     state: latest
   vars:
     packages:
@@ -86,10 +85,10 @@
 
 - name: Install snaps
   shell: snap install {{item}}
-  with_items: "{{ install_snaps }}"
+  with_items: '{{ install_snaps }}'
 
 - name: Install additional packages
   apt:
-    name: "{{install_additional}}"
+    name: '{{install_additional}}'
     state: latest
   when: install_additional is defined
