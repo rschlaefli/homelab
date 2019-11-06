@@ -38,8 +38,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 # add rust to the path
-PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-PATH=$HOME/nextcloud/apps:$PATH
+PATH=$HOME/apps:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH
 
 export NVM_DIR="$HOME/.nvm"
