@@ -26,24 +26,35 @@ POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='darkturquoise'
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # setup bundles
-# antigen bundle ssh-agent
-# antigen bundle tmuxinator
-antigen bundle git
+# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+antigen bundle ansible
+antigen bundle command-not-found
+antigen bundle common-aliases
+antigen bundle docker-compose
+antigen bundle docker
+antigen bundle gitfast
+antigen bundle git-flow
+antigen bundle git-extras
+antigen bundle kubectl
 antigen bundle node
 antigen bundle npm
 antigen bundle pip
 antigen bundle python
+antigen bundle terraform
+antigen bundle vscode
+
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
-# add rust to the path
-PATH=$HOME/apps:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+PATH=$HOME/apps:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:$HOME/.garden/bin
 export PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+export KUBECONFIG=${KUBECONFIG:-$HOME/.kube/config}:$HOME/.kube/microk8s.config
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -59,3 +70,13 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+###-begin-ionic-completion-###
+if type compdef &>/dev/null; then
+  __ionic() {
+    compadd -- $(ionic completion -- "${words[@]}" 2>/dev/null)
+  }
+
+  compdef __ionic ionic
+fi
+###-end-ionic-completion-###
