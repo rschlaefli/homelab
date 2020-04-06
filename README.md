@@ -1,5 +1,10 @@
 # Homelab
 
+## Ubuntu 19.10
+
+- Install Ansible from <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>
+- ...
+
 ## Partitioning
 
 1. C: System (Windows)
