@@ -8,4 +8,4 @@
   become_user: '{{account_name}}'
   copy:
     src: rescuetime.desktop
-    dest: '/home/{{account_name}}/.config/autostart/rescuetime.desktop'
+    dest: '/home/{{account_name}}/.config/autostart/'
