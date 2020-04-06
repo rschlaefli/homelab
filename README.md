@@ -2,7 +2,8 @@
 
 ## Ubuntu 19.10
 
-- Install Ansible from <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>
+- Initialize the environment using `wget -O- https://raw.githubusercontent.com/rschlaefli/homelab/ubuntu1910/initialize.sh | sh`
+  - Installs `git`, `ansible`, and other necessities
 - ...
 
 ## Partitioning
