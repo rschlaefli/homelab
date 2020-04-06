@@ -2,8 +2,7 @@
 
 ## Ubuntu 19.10
 
-- Initialize the environment using `wget -O- https://raw.githubusercontent.com/rschlaefli/homelab/ubuntu1910/initialize.sh | sh`
-  - Installs `git`, `ansible`, and other necessities
+- Initialize the environment (`ansible`, `git`, ...) using `wget -O- https://raw.githubusercontent.com/rschlaefli/homelab/ubuntu1910/initialize.sh | sh`
 - ...
 
 ## Partitioning
