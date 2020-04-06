@@ -3,14 +3,14 @@
   roles:
     - bootstrap
     - packages
-    - git
-    - docker
-    - node
+#     - git
+#     - docker
+#     - node
     # - java
     # - scala
     # - r
-    - vpn
-    - latex
+#     - vpn
+#     - latex
   vars:
     account_name: roland
 
