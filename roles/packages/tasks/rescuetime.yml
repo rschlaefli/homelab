@@ -5,7 +5,6 @@
 
 - name: Install rescuetime as a startup application
   become: yes
-  become_user: '{{account_name}}'
   copy:
     src: rescuetime.desktop
     dest: '/home/{{account_name}}/.config/autostart/'
