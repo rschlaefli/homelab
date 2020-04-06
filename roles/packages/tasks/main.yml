@@ -1,10 +1,5 @@
 # TODO: setup startup applications
 
-- include_tasks: flatpak.yml
-
-- include_tasks: zsh.yml
-  when: "'zsh' in install_packages"
-
 - name: Ensure that a ~/bin directory is available
   become: yes
   become_user: '{{account_name}}'
@@ -34,7 +29,7 @@
   apt:
     name: gnome-shell-pomodoro
     state: latest
-  when: "'pomodoro' in install_packages and (ansible_distribution_release == 'bionic' or ansible_distribution_release == 'cosmic')"
+  when: "'pomodoro' in install_packages"
 
 - name: Install caffeine
   apt:
@@ -48,49 +43,30 @@
     state: latest
   when: "'filezilla' in install_packages"
 
-- name: Install CopyQ
-  apt:
-    name: '{{packages}}'
-    state: latest
-  vars:
-    packages:
-      - copyq
-      - copyq-plugins
-  when: "'copyq' in install_packages"
-
-- include_tasks: albert.yml
-  when: "'albert' in install_packages"
-- include_tasks: cleaner.yml
-  when: "'cleaner' in install_packages and (ansible_distribution_release == 'bionic' or ansible_distribution_release == 'cosmic')"
-- include_tasks: keybase.yml
-  when: "'keybase' in install_packages"
-- include_tasks: mendeley.yml
-  when: "'mendeley' in install_packages"
-- include_tasks: neovim.yml
-  when: "'neovim' in install_packages"
-- include_tasks: nextcloud.yml
-  when: "'nextcloud' in install_packages"
 - include_tasks: pomodone.yml
   when: "'pomodone' in install_packages"
-- include_tasks: synology.yml
-  when: "'synology' in install_packages"
-- include_tasks: vscode.yml
-  when: "'vscode' in install_packages"
-- include_tasks: zsh.yml
-  when: "'zsh' in install_packages"
+  
 - include_tasks: rescuetime.yml
   when: "'rescuetime' in install_packages"
+  
+- include_tasks: vscode.yml
+  when: "'vscode' in install_packages"
+  
+- include_tasks: zsh.yml
+  when: "'zsh' in install_packages"
 
-- name: Install git-standup
-  shell: snap install git-standup --edge
-  when: "'git-standup' in install_packages"
+# - include_tasks: flatpak.yml
 
-- name: Install snaps
-  shell: snap install {{item}}
-  with_items: '{{ install_snaps }}'
+# - name: Install git-standup
+#   shell: snap install git-standup --edge
+#   when: "'git-standup' in install_packages"
 
-- name: Install additional packages
-  apt:
-    name: '{{install_additional}}'
-    state: latest
-  when: install_additional is defined
+# - name: Install snaps
+#   shell: snap install {{item}}
+#   with_items: '{{ install_snaps }}'
+
+# - name: Install additional packages
+#   apt:
+#     name: '{{install_additional}}'
+#     state: latest
+#   when: install_additional is defined
