@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name={{item.name}}
+Exec={{item.path}}
+Type=Application

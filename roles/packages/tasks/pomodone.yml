@@ -1,4 +1,0 @@
-- name: Install pomodone
-  apt:
-    deb: https://app.pomodoneapp.com/installers/PomoDoneApp_1.5.1534_amd64.deb
-    state: present

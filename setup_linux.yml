@@ -1,48 +1,89 @@
 - name: Setup ubuntu
   hosts: 127.0.0.1
   roles:
-    - bootstrap
-    - packages
-#     - git
-#     - docker
-#     - node
+    # - undervolt
+    # - packages
+    - zsh
+    # - vscode
+    # - git
+    # - docker
+    # - node
     # - java
     # - scala
     # - r
-#     - vpn
-#     - latex
+    # - vpn
+    # - latex
   vars:
+    # GENERAL
     account_name: roland
 
+    # UNDERVOLT
     # cpu_uv: 130
     # gpu_uv: 45
 
+    # PACKAGES
+    packages_ppa:
+      - ppa:agornostal/ulauncher
+
+    packages_apt:
+      - nano
+      - htop
+      - tilix
+      - nemo
+      - ufw
+      - gufw
+      - build-essential
+      - git
+      - caffeine
+      - filezilla
+      - pdfshuffler
+      - git-extras
+
+    packages_deb:
+      # https://ulauncher.io/#Download
+      - https://github.com/Ulauncher/Ulauncher/releases/download/5.7.0/ulauncher_5.7.0_all.deb
+      # https://store.steampowered.com/linux
+      - https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+      # https://pomodoneapp.com/download-pomodone-app.html#linux
+      - https://app.pomodoneapp.com/installers/PomoDoneApp_1.5.1534_amd64.deb
+      # https://www.rescuetime.com/download_linux
+      - https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
+      # https://www.dropbox.com/install-linux
+      - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
+      # https://support.toggl.com/en/articles/2410832-toggl-desktop-for-linux
+      - https://github.com/toggl-open-source/toggldesktop/releases/download/v7.4.528/toggldesktop_7.4.528_amd64.deb
+      # https://products.office.com/de-ch/microsoft-teams/group-chat-software#desktopAppDownloadregion
+      - https://go.microsoft.com/fwlink/p/?linkid=2112886
+      # https://minetime.ai/
+      - https://europe-west1-minetime-backend.cloudfunctions.net/download/linux-deb
+
+    packages_snap_confined:
+      - bitwarden
+      - bw
+      - chromium
+      - gravit-designer
+      - journey
+      - postman
+      - redis-desktop-manager
+      - spotify
+      - writefull
+
+    packages_snap_classic:
+      - heroku
+
+    packages_startup:
+      - { path: "/usr/bin/rescuetime", name: "RescueTime" }
+      - { path: "/usr/bin/nemo-desktop", name: "nemo-desktop" }
+      - { path: "/usr/bin/TogglDesktop.sh", name: "Toggl" }
+
+    # GIT
     git_user_name: Roland Schlaefli
     git_user_email: rolandschlaefli@gmail.com
 
-    install_packages:
-      - pomodone
-      - caffeine
-      - filezilla
-      - vscode
-      - neovim
-      - cleaner
-      - albert
-      - git-standup
-      - zsh
-      - keybase
-      - rescuetime
-
-    install_snaps:
-      # - gitkraken
-      - spotify
-      # - postman
-      - redis-desktop-manager
-      - chromium
-      - writefull
-      - bitwarden
-      - bw
-      - gravit-designer
-
-    install_additional:
-      - pdfshuffler
+    # NODEJS
+    nvm_version: v0.35.3
+    node_versions:
+      - latest
+      - lts
+      - v10.19.0
+    node_version_default: v10.19.0
