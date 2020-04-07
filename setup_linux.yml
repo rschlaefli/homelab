@@ -39,6 +39,14 @@
         - candidate: sbt
           name: sbt
           link: /usr/bin/sbt
+    - role: ansible-role-nvm
+      become: yes
+      become_user: "{{account_name}}"
+      nvm_commands:
+        - "nvm install"
+        - "nvm install --lts"
+        - "nvm install 10"
+        - "nvm alias default 10"
   vars:
     # GENERAL
     account_name: roland
@@ -105,11 +113,3 @@
     # GIT
     git_user_name: Roland Schlaefli
     git_user_email: rolandschlaefli@gmail.com
-
-    # NODEJS
-    nvm_version: v0.35.3
-    node_versions:
-      - latest
-      - lts
-      - v10.19.0
-    node_version_default: v10.19.0
