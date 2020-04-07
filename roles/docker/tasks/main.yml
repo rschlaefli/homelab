@@ -3,11 +3,11 @@
 - name: Update APT package cache
   apt:
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: "3600"
 
 - name: Install required packages
   apt:
-    name: '{{packages}}'
+    name: "{{packages}}"
     state: latest
   vars:
     packages:
@@ -19,12 +19,12 @@
 - name: Add the Docker repository key
   apt_key:
     id: 0EBFCD88
-    url: 'https://download.docker.com/linux/ubuntu/gpg'
+    url: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
 
 - name: Add the Docker stable repository
   apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable
     state: present
 
 - name: Install docker-ce
@@ -41,18 +41,19 @@
 - name: Increase VM max map count
   sysctl:
     name: vm.max_map_count
-    value: '262144'
+    value: "262144"
 
 - name: Add main account to the docker group
   user:
-    name: '{{account_name}}'
-    groups: docker
+    name: "{{account_name}}"
+    groups:
+      - docker
     append: yes
 
 - name: Install docker-compose
   shell: >
     curl -L https://github.com/docker/compose/releases/download/{{compose_version}}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && chmod 777 /usr/local/bin/docker-compose
   args:
-    creates: '/usr/local/bin/docker-compose'
+    creates: "/usr/local/bin/docker-compose"
   vars:
-    compose_version: 1.24.1
+    compose_version: 1.25.4
