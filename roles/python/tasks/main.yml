@@ -1,0 +1,8 @@
+# TODO: silent installation as described in the docs
+# https://conda.io/projects/conda/en/latest/user-guide/install/macos.html#install-macos-silent
+
+- name: Install miniconda
+  shell: >
+    curl -o- https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh | bash
+  # args:
+  #   creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"

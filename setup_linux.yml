@@ -1,15 +1,12 @@
 - name: Setup ubuntu
   hosts: 127.0.0.1
   roles:
+    - packages
+    - zsh
+    - git
+    - docker
+    - vscode
     # - undervolt
-    # - packages
-    # - zsh
-    # - git
-    # - docker
-    # - node
-    # - vscode
-    # - scala
-    # - r
     # - vpn
     # - latex
     - role: Comcast.sdkman
@@ -43,7 +40,6 @@
       become: yes
       become_user: "{{account_name}}"
       nvm_commands:
-        - "nvm install"
         - "nvm install --lts"
         - "nvm install 10"
         - "nvm alias default 10"
