@@ -1,15 +1,28 @@
 # TODO: setup startup applications
 
-- include_tasks: flatpak.yml
+- name: Update APT package cache
+  apt:
+    update_cache: yes
+    cache_valid_time: "3600"
 
-- include_tasks: zsh.yml
-  when: "'zsh' in install_packages"
+- name: Upgrade all installed APT packages (in safe mode)
+  apt:
+    upgrade: safe
+
+- name: Install exFAT dependencies
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - exfat-fuse
+      - exfat-utils
 
 - name: Ensure that a ~/bin directory is available
   become: yes
-  become_user: '{{account_name}}'
+  become_user: "{{account_name}}"
   file:
-    path: '/home/{{account_name}}/bin'
+    path: "/home/{{account_name}}/bin"
     state: directory
 
 - name: Install the gnome tweaks application
@@ -22,75 +35,52 @@
     name: chrome-gnome-shell
     state: latest
 
+- name: Install libsecret
+  apt:
+    name: libsecret-1-dev
+    state: latest
+
 - name: Install microsoft core fonts
   apt:
     name: ttf-mscorefonts-installer
     state: latest
   environment:
-    ACCEPT_EULA: 'y'
-  when: "'microsoft-fonts' in install_packages"
+    ACCEPT_EULA: "y"
 
-- name: Install pomodoro timer
+- name: Add ppa repositories
+  apt_repository:
+    repo: "{{item}}"
+    state: present
+  loop: "{{packages_ppa}}"
+
+- name: Install apt packages
   apt:
-    name: gnome-shell-pomodoro
+    name: "{{item}}"
     state: latest
-  when: "'pomodoro' in install_packages and (ansible_distribution_release == 'bionic' or ansible_distribution_release == 'cosmic')"
+  loop: "{{packages_apt}}"
 
-- name: Install caffeine
+- name: Install deb packages
   apt:
-    name: caffeine
-    state: latest
-  when: "'caffeine' in install_packages"
+    deb: "{{item}}"
+    state: present
+  loop: "{{packages_deb}}"
+  ignore_errors: yes
 
-- name: Install filezilla
-  apt:
-    name: filezilla
-    state: latest
-  when: "'filezilla' in install_packages"
+- name: Install snap packages (confined)
+  snap:
+    name: "{{item}}"
+    state: present
+  loop: "{{packages_snap_confined}}"
 
-- name: Install CopyQ
-  apt:
-    name: '{{packages}}'
-    state: latest
-  vars:
-    packages:
-      - copyq
-      - copyq-plugins
-  when: "'copyq' in install_packages"
+- name: Install snap packages (classic)
+  snap:
+    name: "{{item}}"
+    state: present
+  loop: "{{packages_snap_classic}}"
 
-- include_tasks: albert.yml
-  when: "'albert' in install_packages"
-- include_tasks: cleaner.yml
-  when: "'cleaner' in install_packages and (ansible_distribution_release == 'bionic' or ansible_distribution_release == 'cosmic')"
-- include_tasks: keybase.yml
-  when: "'keybase' in install_packages"
-- include_tasks: mendeley.yml
-  when: "'mendeley' in install_packages"
-- include_tasks: neovim.yml
-  when: "'neovim' in install_packages"
-- include_tasks: nextcloud.yml
-  when: "'nextcloud' in install_packages"
-- include_tasks: pomodone.yml
-  when: "'pomodone' in install_packages"
-- include_tasks: synology.yml
-  when: "'synology' in install_packages"
-- include_tasks: vscode.yml
-  when: "'vscode' in install_packages"
-- include_tasks: zsh.yml
-  when: "'zsh' in install_packages"
-- include_tasks: rescuetime.yml
-  when: "'rescuetime' in install_packages"
-
-- name: Install git-standup
-  shell: snap install git-standup --edge
-  when: "'git-standup' in install_packages"
-
-- name: Install snaps
-  shell: snap install {{item}}
-  with_items: '{{ install_snaps }}'
-
-- name: Install additional packages
-  apt:
-    name: '{{install_additional}}'
-    state: latest
-  when: install_additional is defined
+- name: Add startup applications
+  become: yes
+  template:
+    src: startup.desktop
+    dest: "/home/{{account_name}}/.config/autostart/"
+  loop: "{{packages_startup}}"

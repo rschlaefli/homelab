@@ -1,0 +1,58 @@
+- name: Install zsh
+  apt:
+    name: zsh
+    state: latest
+
+# https://getantibody.github.io/install/
+- name: Install antibody
+  apt:
+    deb: https://github.com/getantibody/antibody/releases/download/v6.0.0/antibody_6.0.0_linux_amd64.deb
+    state: present
+
+- name: Download powerline font
+  become: yes
+  become_user: "{{account_name}}"
+  get_url:
+    url: https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+    dest: "/home/{{account_name}}/.local/share/fonts/PowerlineSymbols.otf"
+    mode: 0700
+
+- name: Update the font cache
+  become: yes
+  become_user: "{{account_name}}"
+  command: "fc-cache -vf /home/{{account_name}}//.local/share/fonts/"
+
+- name: Ensure the fontconfig directory exists
+  become: yes
+  become_user: "{{account_name}}"
+  file:
+    path: "/home/{{account_name}}/.config/fontconfig/conf.d"
+    state: directory
+
+- name: Install the fontconfig file
+  become: yes
+  become_user: "{{account_name}}"
+  get_url:
+    url: https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf
+    dest: "/home/{{account_name}}/.config/fontconfig/conf.d/10-powerline-symbols.conf"
+    mode: 0700
+
+- name: Inject .zsh_plugins.conf
+  become: yes
+  become_user: "{{account_name}}"
+  copy:
+    src: .zsh_plugins.conf
+    dest: "/home/{{account_name}}/.zsh_plugins.conf"
+
+- name: Inject .zshrc
+  become: yes
+  become_user: "{{account_name}}"
+  template:
+    src: .zshrc
+    dest: "/home/{{account_name}}/.zshrc"
+    mode: "0700"
+
+- name: Build the plugins file
+  become: yes
+  become_user: "{{account_name}}"
+  shell: antibody bundle < ~/.zsh_plugins.conf > ~/.zsh_plugins.sh
