@@ -1,3 +1,4 @@
+# TODO: refactor for sdkman
 # TODO: parametrize java versions
 
 - name: Install maven
