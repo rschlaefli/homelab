@@ -1,0 +1,10 @@
+[Unit]
+Description=Reapply undervolt settings after suspend
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/undervolt -v --core -{{cpu_uv}} --gpu -{{gpu_uv}} --cache -{{cpu_uv}}
+
+[Install]
+WantedBy=suspend.target
