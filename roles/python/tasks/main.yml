@@ -1,5 +1,6 @@
 # TODO: silent installation as described in the docs
 # https://conda.io/projects/conda/en/latest/user-guide/install/macos.html#install-macos-silent
+# https://github.com/andrewrothstein/ansible-miniconda/blob/master/tasks/main.yml
 
 - name: Install miniconda
   shell: >
