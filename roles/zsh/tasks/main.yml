@@ -55,4 +55,4 @@
 - name: Build the plugins file
   become: yes
   become_user: "{{account_name}}"
-  shell: antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+  shell: antibody bundle < ~/.zsh_plugins.conf > ~/.zsh_plugins.sh
