@@ -51,3 +51,8 @@
     src: .zshrc
     dest: "/home/{{account_name}}/.zshrc"
     mode: "0700"
+
+- name: Build the plugins file
+  become: yes
+  become_user: "{{account_name}}"
+  shell: antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh

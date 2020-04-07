@@ -20,8 +20,8 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='darkturquoise'
 POWERLEVEL9K_DIR_ETC_BACKGROUND='darkturquoise'
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='darkturquoise'
 
-# create the antibody bundle dynamically
-antibody bundle < $HOME/.zsh_plugins.conf
+# load the antibody bundle
+source ~/.zsh_plugins.sh
 
 # setup the path
 PATH=$HOME/apps:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
