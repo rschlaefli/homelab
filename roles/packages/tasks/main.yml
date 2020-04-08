@@ -76,6 +76,7 @@
   snap:
     name: "{{item}}"
     state: present
+    classic: yes
   loop: "{{packages_snap_classic}}"
 
 - name: Add startup applications
