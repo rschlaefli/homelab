@@ -9,6 +9,13 @@
     deb: https://github.com/getantibody/antibody/releases/download/v6.0.0/antibody_6.0.0_linux_amd64.deb
     state: present
 
+- name: Ensure that the font directory exists
+  become: yes
+  become_user: "{{account_name}}"
+  file:
+    path: "/home/{{account_name}}/.local/share/fonts"
+    state: directory
+
 - name: Download powerline font
   become: yes
   become_user: "{{account_name}}"
