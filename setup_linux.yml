@@ -96,7 +96,6 @@
       - postman
       - redis-desktop-manager
       - spotify
-      - writefull
 
     packages_snap_classic:
       - heroku
