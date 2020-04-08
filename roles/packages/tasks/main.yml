@@ -3,7 +3,7 @@
 - name: Update APT package cache
   apt:
     update_cache: yes
-    cache_valid_time: "3600"
+    cache_valid_time: '3600'
 
 - name: Upgrade all installed APT packages (in safe mode)
   apt:
@@ -11,7 +11,7 @@
 
 - name: Install exFAT dependencies
   apt:
-    name: "{{ packages }}"
+    name: '{{ packages }}'
     state: latest
   vars:
     packages:
@@ -20,9 +20,9 @@
 
 - name: Ensure that a ~/bin directory is available
   become: yes
-  become_user: "{{account_name}}"
+  become_user: '{{account_name}}'
   file:
-    path: "/home/{{account_name}}/bin"
+    path: '/home/{{account_name}}/bin'
     state: directory
 
 - name: Install the gnome tweaks application
@@ -45,43 +45,44 @@
     name: ttf-mscorefonts-installer
     state: latest
   environment:
-    ACCEPT_EULA: "y"
+    ACCEPT_EULA: 'y'
 
 - name: Add ppa repositories
   apt_repository:
-    repo: "{{item}}"
+    repo: '{{item}}'
     state: present
-  loop: "{{packages_ppa}}"
+  loop: '{{packages_ppa}}'
 
 - name: Install apt packages
   apt:
-    name: "{{item}}"
+    name: '{{item}}'
     state: latest
-  loop: "{{packages_apt}}"
+  loop: '{{packages_apt}}'
 
 - name: Install deb packages
   apt:
-    deb: "{{item}}"
+    deb: '{{item}}'
     state: present
-  loop: "{{packages_deb}}"
+  loop: '{{packages_deb}}'
   ignore_errors: yes
 
 - name: Install snap packages (confined)
   snap:
-    name: "{{item}}"
+    name: '{{item}}'
     state: present
-  loop: "{{packages_snap_confined}}"
+  loop: '{{packages_snap_confined}}'
 
 - name: Install snap packages (classic)
   snap:
-    name: "{{item}}"
+    name: '{{item}}'
     state: present
     classic: yes
-  loop: "{{packages_snap_classic}}"
+  loop: '{{packages_snap_classic}}'
 
 - name: Add startup applications
   become: yes
+  become_user: '{{account_name}}'
   template:
     src: startup.desktop
-    dest: "/home/{{account_name}}/.config/autostart/"
-  loop: "{{packages_startup}}"
+    dest: '/home/{{account_name}}/.config/autostart/'
+  loop: '{{packages_startup}}'

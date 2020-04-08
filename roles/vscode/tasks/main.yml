@@ -1,6 +1,11 @@
 # install microsoft vscode
 # see https://code.visualstudio.com/docs/setup/linux
 
+- name: Install FiraCode
+  apt:
+    name: fonts-firacode
+    state: latest
+
 - name: Install vscode
   apt:
     deb: https://go.microsoft.com/fwlink/?LinkID=760868
@@ -16,7 +21,7 @@
 - name: Ensure that there are enough file handles for the file watcher
   sysctl:
     name: fs.inotify.max_user_watches
-    value: "524288"
+    value: '524288'
     state: present
 
 # https://code.visualstudio.com/docs/setup/linux#_debian-alternatives-system
