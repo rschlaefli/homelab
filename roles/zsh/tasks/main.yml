@@ -16,14 +16,6 @@
     path: "/home/{{account_name}}/.local/share/fonts"
     state: directory
 
-- name: Download powerline font
-  become: yes
-  become_user: "{{account_name}}"
-  get_url:
-    url: https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-    dest: "/home/{{account_name}}/.local/share/fonts/PowerlineSymbols.otf"
-    mode: 0700
-
 - name: Update the font cache
   become: yes
   become_user: "{{account_name}}"
@@ -36,13 +28,12 @@
     path: "/home/{{account_name}}/.config/fontconfig/conf.d"
     state: directory
 
-- name: Install the fontconfig file
+- name: Inject the starship config
   become: yes
   become_user: "{{account_name}}"
-  get_url:
-    url: https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf
-    dest: "/home/{{account_name}}/.config/fontconfig/conf.d/10-powerline-symbols.conf"
-    mode: 0700
+  copy:
+    src: starship.toml
+    dest: "/home/{{account_name}}/.config/starship.toml"
 
 - name: Inject .zsh_plugins.conf
   become: yes

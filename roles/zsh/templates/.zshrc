@@ -1,6 +1,7 @@
 export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 export EDITOR='nano'
+export NVM_LAZY_LOAD=true
 
 # enable firefox hardware acceleration
 export MOZ_ACCELERATED=1 MOZ_WEBRENDER=1
@@ -9,16 +10,6 @@ export MOZ_ACCELERATED=1 MOZ_WEBRENDER=1
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte-2.91.sh
 fi
-
-# load antibody
-source <(antibody init)
-
-# setup theme
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_DIR_HOME_BACKGROUND='darkturquoise'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='darkturquoise'
-POWERLEVEL9K_DIR_ETC_BACKGROUND='darkturquoise'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='darkturquoise'
 
 # load the antibody bundle
 source ~/.zsh_plugins.sh
@@ -55,3 +46,6 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/{{account_name}}/.sdkman"
 [[ -s "/home/{{account_name}}/.sdkman/bin/sdkman-init.sh" ]] && source "/home/{{account_name}}/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_OFFLINE_MODE=false
+
+eval "$(starship init zsh)"
