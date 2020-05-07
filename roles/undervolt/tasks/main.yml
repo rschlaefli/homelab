@@ -6,17 +6,17 @@
 
 - name: Create a service for undervolting on startup
   template:
-    src: dotfiles/undervolt.service
+    src: undervolt.service
     dest: /etc/systemd/system/undervolt.service
 
 - name: Create a service for undervolting on resume
   template:
-    src: dotfiles/undervolt-resume.service
+    src: undervolt-resume.service
     dest: /etc/systemd/system/undervolt-resume.service
 
 - name: Install a timer for the undervolt service
   template:
-    src: dotfiles/undervolt.timer
+    src: undervolt.timer
     dest: /etc/systemd/system/undervolt.timer
 
 - name: Start the timer for the undervolt service
