@@ -6,15 +6,14 @@
     - git
     - docker
     - vscode
-    # - undervolt
-    # - vpn
+    - vpn
     # - latex
     - role: Comcast.sdkman
       sdkman_user: "{{account_name}}"
       sdkman_group: "{{account_name}}"
       sdkman_install_packages:
-        - { candidate: java, version: 8.0.242.hs-adpt }
-        - { candidate: java, version: 14.0.0.hs-adpt }
+        - { candidate: java, version: 8.0.252.hs-adpt }
+        - { candidate: java, version: 14.0.1.hs-adpt }
         - { candidate: sbt, version: 1.3.9 }
       sdkman_defaults:
         java: 8.0.242.hs-adpt
@@ -41,15 +40,12 @@
       become_user: "{{account_name}}"
       nvm_commands:
         - "nvm install --lts"
-        - "nvm install 10"
-        - "nvm alias default 10"
+        - "nvm install 12"
+        - "nvm install 14"
+        - "nvm alias default 12"
   vars:
     # GENERAL
     account_name: roland
-
-    # UNDERVOLT
-    # cpu_uv: 130
-    # gpu_uv: 45
 
     # PACKAGES
     packages_ppa:

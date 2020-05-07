@@ -1,0 +1,12 @@
+- name: Setup undervolt
+  hosts: 127.0.0.1
+  roles:
+    - undervolt
+
+  vars:
+    # GENERAL
+    account_name: roland
+
+    # UNDERVOLT
+    cpu_uv: 130
+    gpu_uv: 45
