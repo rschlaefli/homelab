@@ -9,6 +9,10 @@
     deb: https://github.com/getantibody/antibody/releases/download/v6.0.0/antibody_6.0.0_linux_amd64.deb
     state: present
 
+- name: Install starship
+  shell:
+    cmd: curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+
 - name: Ensure that the font directory exists
   become: yes
   become_user: "{{account_name}}"
