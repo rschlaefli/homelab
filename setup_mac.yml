@@ -1,0 +1,123 @@
+- name: Setup MacOS
+  hosts: 127.0.0.1
+
+  roles:
+    - role: elliotweiser.osx-command-line-tools
+    - role: geerlingguy.mac.homebrew
+      tags: ['homebrew']
+    - role: geerlingguy.mac.mas
+      when: mas_installed_apps or mas_installed_app_ids
+      tags: ['mas']
+    - role: geerlingguy.mac.dock
+      when: configure_dock
+      tags: ['dock']
+
+  vars:
+    homebrew_installed_packages:
+      - azure-cli
+      - bash-completion
+      - dopplerhq/doppler/doppler
+      - gettext
+      - git
+      - git-extras
+      - github/gh/gh
+      - gpg
+      - httpie
+      - iperf
+      - kubernetes-cli
+      - languagetool
+      - libevent
+      - mcrypt
+      - nano
+      - neovim
+      - nmap
+      - openssl
+      - podman
+      - podman-compose
+      - poetry
+      - pyenv
+      - pv
+      - readline
+      - ssh-copy-id
+      - sqlite
+      - volta
+      - wget
+      - wrk
+      - zsh-history-substring-search
+
+    homebrew_taps:
+      - homebrew/core
+      - homebrew/cask
+
+    homebrew_cask_appdir: /Applications
+    homebrew_cask_apps:
+      - clickup
+      - firefox
+      - google-chrome
+      - google-drive
+      - handbrake
+      - jetbrains-toolbox
+      - microsoft-teams
+      - notion
+      - podman-desktop
+      - spotify
+      - raycast
+      - visual-studio-code
+      - warp
+      - zoom
+
+    mas_installed_apps:
+      - id: 1352778147
+        name: Bitwarden
+      - id: 1534275760
+        name: LanguageTool
+      - id: 1295203466
+        name: Microsoft Remote Desktop
+      - id: 1425368544
+        name: Timery for Toggl
+      - id: 462054704
+        name: Microsoft Word
+      - id: 985367838
+        name: Microsoft Outlook
+      - id: 462058435
+        name: Microsoft Excel
+      - id: 462062816
+        name: Microsoft PowerPoint
+      - id: 823766827
+        name: OneDrive
+
+    configure_dock: true
+    dockitems_remove:
+      - Safari
+      - Photos
+      - FaceTime
+      - Calendar
+      - Contacts
+      - Reminders
+      - Notes
+      - Freeform
+      - Music
+      - Keynote
+      - Numbers
+      - Pages
+      - TV
+      - Podcasts
+      - App Store
+      - System Settings
+    dockitems_persist:
+      # - name: Microsoft Excel
+      #   path: /Applications/Microsoft Excel.app/
+      - name: Microsoft Outlook
+        path: /Applications/Microsoft Outlook.app/
+      - name: Microsoft PowerPoint
+      #   path: /Applications/Microsoft PowerPoint.app/
+      # - name: Microsoft Teams
+        path: /Applications/Microsoft Teams.app/
+      # - name: Microsoft Word
+      #   path: /Applications/Microsoft Word.app/
+      - name: Spotify
+        path: /Applications/Spotify.app/
+      - name: Visual Studio Code
+        path: /Applications/Visual Studio Code.app/
+      - name: Warp
+        path: /Applications/Warp.app/
