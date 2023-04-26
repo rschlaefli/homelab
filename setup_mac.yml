@@ -15,6 +15,7 @@
   vars:
     homebrew_installed_packages:
       - azure-cli
+      - Azure/kubelogin/kubelogin
       - bash-completion
       - dopplerhq/doppler/doppler
       - gettext
@@ -35,6 +36,7 @@
       - podman
       - podman-compose
       - poetry
+      - pulumi
       - pyenv
       - pv
       - readline
@@ -89,6 +91,7 @@
 
     configure_dock: true
     dockitems_remove:
+      - Launchpad
       - Safari
       - Photos
       - FaceTime
