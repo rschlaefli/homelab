@@ -59,6 +59,7 @@
       - jetbrains-toolbox
       - microsoft-teams
       - notion
+      - obsidian
       - podman-desktop
       - spotify
       - raycast
@@ -109,9 +110,9 @@
       #   path: /Applications/Microsoft Excel.app/
       - name: Microsoft Outlook
         path: /Applications/Microsoft Outlook.app/
-      - name: Microsoft PowerPoint
+      # - name: Microsoft PowerPoint
       #   path: /Applications/Microsoft PowerPoint.app/
-      # - name: Microsoft Teams
+      - name: Microsoft Teams
         path: /Applications/Microsoft Teams.app/
       # - name: Microsoft Word
       #   path: /Applications/Microsoft Word.app/
