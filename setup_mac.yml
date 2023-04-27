@@ -56,17 +56,23 @@
     homebrew_cask_appdir: /Applications
     homebrew_cask_apps:
       - clickup
+      - cryptomator
+      - cyberduck
+      - discord
+      - figma
       - firefox
       - google-chrome
       - google-drive
       - handbrake
       - jetbrains-toolbox
       - microsoft-teams
+      - mongodb-compass
       - notion
       - obsidian
       - podman-desktop
       - spotify
       - raycast
+      - responsively
       - visual-studio-code
       - warp
       - zoom
