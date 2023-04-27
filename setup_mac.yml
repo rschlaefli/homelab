@@ -23,6 +23,8 @@
       - git-extras
       - github/gh/gh
       - gpg
+      - helm
+      - helmfile
       - httpie
       - iperf
       - kubernetes-cli
