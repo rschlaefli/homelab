@@ -1,3 +1,7 @@
+# ----- ALIASES -----
+alias k=kubectl
+
+# ----- PATH -----
 export PATH="/Users/roland/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
