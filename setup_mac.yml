@@ -14,6 +14,7 @@
 
   vars:
     homebrew_installed_packages:
+      - antidote
       - azure-cli
       - Azure/kubelogin/kubelogin
       - bash-completion
