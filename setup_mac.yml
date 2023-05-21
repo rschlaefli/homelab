@@ -93,8 +93,6 @@
         name: Timery for Toggl
       - id: 462054704
         name: Microsoft Word
-      - id: 985367838
-        name: Microsoft Outlook
       - id: 462058435
         name: Microsoft Excel
       - id: 462062816
@@ -124,16 +122,8 @@
       - App Store
       - System Settings
     dockitems_persist:
-      # - name: Microsoft Excel
-      #   path: /Applications/Microsoft Excel.app/
-      - name: Microsoft Outlook
-        path: /Applications/Microsoft Outlook.app/
-      # - name: Microsoft PowerPoint
-      #   path: /Applications/Microsoft PowerPoint.app/
       - name: Microsoft Teams
         path: /Applications/Microsoft Teams.app/
-      # - name: Microsoft Word
-      #   path: /Applications/Microsoft Word.app/
       - name: Spotify
         path: /Applications/Spotify.app/
       - name: Visual Studio Code
