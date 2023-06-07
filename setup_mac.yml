@@ -31,6 +31,7 @@
       - kubernetes-cli
       - languagetool
       - libevent
+      - libpq # postgres tooling
       - mcrypt
       - nano
       - neovim
@@ -66,6 +67,7 @@
       - google-drive
       - handbrake
       - jetbrains-toolbox
+      - microsoft-edge
       - microsoft-teams
       - mongodb-compass
       - notion
