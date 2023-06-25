@@ -19,6 +19,7 @@
       - Azure/kubelogin/kubelogin
       - bash-completion
       - dopplerhq/doppler/doppler
+      - dotnet
       - gettext
       - git
       - git-extras
