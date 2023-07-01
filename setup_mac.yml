@@ -64,6 +64,7 @@
       - cryptomator
       - cyberduck
       - discord
+      - dozer # menu bar icon organization
       - figma
       - firefox
       - google-chrome
@@ -78,7 +79,6 @@
       - obsidian
       - podman-desktop
       - spotify
-      # - setapp
       - steam
       - raycast
       - rectangle
