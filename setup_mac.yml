@@ -30,6 +30,7 @@
       - helmfile
       - httpie
       - iperf
+      - k6
       - kubernetes-cli
       - languagetool
       - libevent
