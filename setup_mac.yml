@@ -36,6 +36,7 @@
       - libevent
       - libpq # postgres tooling
       - mcrypt
+      - mysql-client
       - nano
       - neovim
       - nmap
