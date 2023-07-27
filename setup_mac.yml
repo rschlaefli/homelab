@@ -58,6 +58,7 @@
     homebrew_taps:
       - homebrew/core
       - homebrew/cask
+      - microsoft/git
 
     homebrew_cask_appdir: /Applications
     homebrew_cask_apps:
@@ -69,6 +70,7 @@
       - dozer # menu bar icon organization
       - figma
       - firefox
+      - git-credential-manager-core
       - google-chrome
       - google-drive
       - handbrake
@@ -93,8 +95,6 @@
     mas_installed_apps:
       - id: 1352778147
         name: Bitwarden
-      - id: 1534275760
-        name: LanguageTool
       - id: 1295203466
         name: Microsoft Remote Desktop
       - id: 462054704
@@ -103,10 +103,18 @@
         name: Microsoft Excel
       - id: 462062816
         name: Microsoft PowerPoint
+      - id: 784801555
+        name: Microsoft OneNote
       - id: 823766827
         name: OneDrive
       - id: 1085114709
         name: Parallels Desktop
+      - id: 470158793
+        name: Keka
+      - id: 1490048917
+        name: Taskade
+      - id: 1346247457
+        name: Endel
 
     configure_dock: true
     dockitems_remove:
@@ -130,9 +138,13 @@
     dockitems_persist:
       - name: Microsoft Teams
         path: /Applications/Microsoft Teams.app/
-      - name: Spotify
-        path: /Applications/Spotify.app/
-      - name: Visual Studio Code
-        path: /Applications/Visual Studio Code.app/
+      - name: Firefox
+        path: /Applications/Firefox.app/
       - name: Warp
         path: /Applications/Warp.app/
+      - name: Visual Studio Code
+        path: /Applications/Visual Studio Code.app/
+      - name: Endel
+        path: /Applications/Endel.app/
+      - name: Spotify
+        path: /Applications/Spotify.app/
