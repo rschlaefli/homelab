@@ -41,6 +41,7 @@
       - neovim
       - nmap
       - openssl
+      - pnpm
       - podman
       - podman-compose
       - poetry
