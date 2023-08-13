@@ -11,6 +11,7 @@
     - role: geerlingguy.mac.dock
       when: configure_dock
       tags: ['dock']
+    - role: settings
 
   vars:
     homebrew_installed_packages:
@@ -136,16 +137,22 @@
       - Podcasts
       - App Store
       - System Settings
+      - Mail
+      - Maps
+      - Messagess
     dockitems_persist:
       - name: Microsoft Teams
         path: /Applications/Microsoft Teams.app/
+        pos: 2
       - name: Firefox
         path: /Applications/Firefox.app/
+        pos: 1
       - name: Warp
         path: /Applications/Warp.app/
+        pos: 3
       - name: Visual Studio Code
         path: /Applications/Visual Studio Code.app/
-      - name: Endel
-        path: /Applications/Endel.app/
+        pos: 4
       - name: Spotify
         path: /Applications/Spotify.app/
+        pos: 5
