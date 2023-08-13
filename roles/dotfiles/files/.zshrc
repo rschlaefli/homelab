@@ -1,4 +1,4 @@
-# homebrew setup
+# homebrew path setup
 export PATH="/Users/roland/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
 
 # source antidote
@@ -18,7 +18,9 @@ export VOLTA_HOME="$HOME/.volta"
 export VOLTA_FEATURE_PNPM=1
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# aliases
 alias k=kubectl
 alias pn=pnpm
 
+# warp subshell setup
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
