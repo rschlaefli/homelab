@@ -3,157 +3,200 @@
 
   roles:
     - role: elliotweiser.osx-command-line-tools
+
     - role: geerlingguy.mac.homebrew
-      tags: ['homebrew']
+      vars:
+        homebrew_installed_packages:
+          - antidote
+          - asdf
+          - azure-cli
+          - Azure/kubelogin/kubelogin
+          - bash-completion
+          - dopplerhq/doppler/doppler
+          - dotnet
+          - gettext
+          - git
+          - git-extras
+          - git-lfs
+          - github/gh/gh
+          - gpg
+          - helm
+          - helmfile
+          - homeshick
+          - httpie
+          - iperf
+          - k6
+          - kubernetes-cli
+          - languagetool
+          - libevent
+          - libpq # postgres tooling
+          - mcrypt
+          - mysql-client
+          - nano
+          - neovim
+          - nmap
+          - openssl
+          - pnpm
+          - podman
+          - podman-compose
+          - poetry
+          - pulumi
+          # - pyenv
+          - pv
+          - readline
+          - ssh-copy-id
+          - sqlite
+          # - volta
+          - wget
+          - wrk
+          # - zsh-history-substring-search
+
+        homebrew_taps:
+          - homebrew/core
+          - homebrew/cask
+          - microsoft/git
+
+        homebrew_cask_appdir: /Applications
+        homebrew_cask_apps:
+          - caffeine
+          - clickup
+          - cryptomator
+          - cyberduck
+          - discord
+          - dozer # menu bar icon organization
+          - figma
+          - firefox
+          - git-credential-manager-core
+          - google-chrome
+          - google-drive
+          - handbrake
+          - jetbrains-toolbox
+          - lulu
+          - microsoft-edge
+          - microsoft-teams
+          - mongodb-compass
+          - notion
+          - obsidian
+          - podman-desktop
+          - spotify
+          - steam
+          - raycast
+          - rectangle
+          - responsively
+          - visual-studio-code
+          - vlc
+          - warp
+          - zoom
+
     - role: geerlingguy.mac.mas
       when: mas_installed_apps or mas_installed_app_ids
-      tags: ['mas']
+      vars:
+        mas_installed_apps:
+          - id: 1352778147
+            name: Bitwarden
+          - id: 1295203466
+            name: Microsoft Remote Desktop
+          - id: 462054704
+            name: Microsoft Word
+          - id: 462058435
+            name: Microsoft Excel
+          - id: 462062816
+            name: Microsoft PowerPoint
+          - id: 784801555
+            name: Microsoft OneNote
+          - id: 823766827
+            name: OneDrive
+          - id: 1085114709
+            name: Parallels Desktop
+          - id: 470158793
+            name: Keka
+          - id: 1490048917
+            name: Taskade
+          - id: 1346247457
+            name: Endel
+
+    - role: osx_provisioner.collection.homeshick
+      vars:
+        homeshick_dotfiles_repo: https://github.com/rschlaefli/dotfiles
+        homeshick_force: true
+
+    - role: osx_provisioner.collection.asdf
+      vars:
+        asdf_plugins:
+          - name: "nodejs"
+            versions: ["18.17.1"]
+            global: "18.17.1"
+          - name: "python"
+            versions: ["3.11.4"]
+            global: "3.11.4"
+          # - name: "erlang"        # a plugin name
+          #   environment: {}       # an optional dictionary of environment variables for build configuration
+          #   pre_install: ""       # an optional command to run directly before the installation (i.e. select a Python Interpreter for compilation)
+          #   repository: ""        # a plugin repository, optional
+          #   versions:             # a list of versions to install
+          #     - 23.3.3
+          #     - 23.3.4
+          #   delete_versions: []   # a list of existing versions that will be removed
+          #   global: 23.3.4        # set as a global version, optional
+
+    - role: osx_provisioner.collection.firewall
+      vars:
+        firewall_enabled: true
+        firewall_stealth_mode_enabled: true
+
+    - role: osx_provisioner.collection.clamav
+      vars:
+        brew_prefix: /opt/homebrew
+        clamav_clamwatch: true
+        clamav_clamwatch_target_folder: "{{ lookup('env','HOME') }}/Downloads"
+        clamav_clamwatch_quarantine_folder: "{{ lookup('env','HOME') }}/Quarantine"
+
     - role: geerlingguy.mac.dock
       when: configure_dock
-      tags: ['dock']
+      vars:
+        configure_dock: true
+        dockitems_remove:
+          - Launchpad
+          - Safari
+          - Photos
+          - FaceTime
+          - Calendar
+          - Contacts
+          - Reminders
+          - Notes
+          - Freeform
+          - Music
+          - Keynote
+          - Numbers
+          - Pages
+          - TV
+          - Podcasts
+          - App Store
+          - System Settings
+          - Mail
+          - Maps
+          - Messages
+        dockitems_persist:
+          - name: Firefox
+            path: /Applications/Firefox.app/
+            pos: 1
+          - name: Microsoft Teams
+            path: /Applications/Microsoft Teams.app/
+            pos: 2
+          - name: Warp
+            path: /Applications/Warp.app/
+            pos: 3
+          - name: Visual Studio Code
+            path: /Applications/Visual Studio Code.app/
+            pos: 4
+          - name: ClickUp
+            path: /Applications/ClickUp.app/
+            pos: 5
+          - name: Obsidian
+            path: /Applications/Obsidian.app/
+            pos: 6
+          - name: Spotify
+            path: /Applications/Spotify.app/
+            pos: 7
+
     - role: settings
-    - role: dotfiles
-
-  vars:
-    homebrew_installed_packages:
-      - antidote
-      - azure-cli
-      - Azure/kubelogin/kubelogin
-      - bash-completion
-      - dopplerhq/doppler/doppler
-      - dotnet
-      - gettext
-      - git
-      - git-extras
-      - git-lfs
-      - github/gh/gh
-      - gpg
-      - helm
-      - helmfile
-      - httpie
-      - iperf
-      - k6
-      - kubernetes-cli
-      - languagetool
-      - libevent
-      - libpq # postgres tooling
-      - mcrypt
-      - mysql-client
-      - nano
-      - neovim
-      - nmap
-      - openssl
-      - pnpm
-      - podman
-      - podman-compose
-      - poetry
-      - pulumi
-      - pyenv
-      - pv
-      - readline
-      - ssh-copy-id
-      - sqlite
-      - volta
-      - wget
-      - wrk
-      - zsh-history-substring-search
-
-    homebrew_taps:
-      - homebrew/core
-      - homebrew/cask
-      - microsoft/git
-
-    homebrew_cask_appdir: /Applications
-    homebrew_cask_apps:
-      - caffeine
-      - clickup
-      - cryptomator
-      - cyberduck
-      - discord
-      - dozer # menu bar icon organization
-      - figma
-      - firefox
-      - git-credential-manager-core
-      - google-chrome
-      - google-drive
-      - handbrake
-      - jetbrains-toolbox
-      - lulu
-      - microsoft-edge
-      - microsoft-teams
-      - mongodb-compass
-      - notion
-      - obsidian
-      - podman-desktop
-      - spotify
-      - steam
-      - raycast
-      - rectangle
-      - responsively
-      - visual-studio-code
-      - vlc
-      - warp
-      - zoom
-
-    mas_installed_apps:
-      - id: 1352778147
-        name: Bitwarden
-      - id: 1295203466
-        name: Microsoft Remote Desktop
-      - id: 462054704
-        name: Microsoft Word
-      - id: 462058435
-        name: Microsoft Excel
-      - id: 462062816
-        name: Microsoft PowerPoint
-      - id: 784801555
-        name: Microsoft OneNote
-      - id: 823766827
-        name: OneDrive
-      - id: 1085114709
-        name: Parallels Desktop
-      - id: 470158793
-        name: Keka
-      - id: 1490048917
-        name: Taskade
-      - id: 1346247457
-        name: Endel
-
-    configure_dock: true
-    dockitems_remove:
-      - Launchpad
-      - Safari
-      - Photos
-      - FaceTime
-      - Calendar
-      - Contacts
-      - Reminders
-      - Notes
-      - Freeform
-      - Music
-      - Keynote
-      - Numbers
-      - Pages
-      - TV
-      - Podcasts
-      - App Store
-      - System Settings
-      - Mail
-      - Maps
-      - Messages
-    dockitems_persist:
-      - name: Microsoft Teams
-        path: /Applications/Microsoft Teams.app/
-        pos: 2
-      - name: Firefox
-        path: /Applications/Firefox.app/
-        pos: 1
-      - name: Warp
-        path: /Applications/Warp.app/
-        pos: 3
-      - name: Visual Studio Code
-        path: /Applications/Visual Studio Code.app/
-        pos: 4
-      - name: Spotify
-        path: /Applications/Spotify.app/
-        pos: 5

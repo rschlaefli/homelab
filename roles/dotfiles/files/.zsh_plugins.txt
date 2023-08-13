@@ -1,2 +1,0 @@
-rupa/z
-sindresorhus/pure

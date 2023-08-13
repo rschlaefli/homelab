@@ -8,3 +8,32 @@
   command: chflags nohidden ~/Library
 - name: "Don't Ask confirmation for change extension"
   command: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+- name: Set name in Git config
+  git_config:
+    name: user.name
+    value: Roland Schlaefli
+- name: Set email in Git config
+  git_config:
+    name: user.email
+    value: rolandschlaefli@gmail.com
+- name: Set the editor for Git to nano
+  community.general.git_config:
+    name: core.editor
+    value: nano
+
+- name: Add Git alias - {{ item.name }}
+  community.general.git_config:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  loop:
+    - { name: 'alias.cm', value: 'commit -m' }
+    - { name: 'alias.co', value: 'checkout' }
+    - { name: 'alias.br', value: 'branch' }
+    - { name: 'alias.cb', value: 'checkout -B' }
+    - { name: 'alias.c', value: 'commit' }
+    - { name: 'alias.st', value: 'status' }
+    - { name: 'alias.d', value: 'diff' }
+    - { name: 'alias.ds', value: 'status -v' }
+    - { name: 'alias.unstage', value: 'reset HEAD --' }
+    - { name: 'alias.last', value: 'log -1 HEAD' }
