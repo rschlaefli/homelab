@@ -139,7 +139,7 @@
       - System Settings
       - Mail
       - Maps
-      - Messagess
+      - Messages
     dockitems_persist:
       - name: Microsoft Teams
         path: /Applications/Microsoft Teams.app/
