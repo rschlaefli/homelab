@@ -37,3 +37,6 @@
     - { name: 'alias.ds', value: 'status -v' }
     - { name: 'alias.unstage', value: 'reset HEAD --' }
     - { name: 'alias.last', value: 'log -1 HEAD' }
+    - { name: 'alias.p', value: 'push' }
+    - { name: 'alias.pn', value: 'push --no-verify' }
+    - { name: 'alias.undo', value: 'reset --soft HEAD~1' }
