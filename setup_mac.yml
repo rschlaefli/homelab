@@ -145,7 +145,7 @@
         firewall_stealth_mode_enabled: true
 
         firewall_pf_anchors:
-        - name: local.development
+        - name: local_domain.pf
           description: Forward port 80 to 8088 for local domains
           rules: |
             rdr pass on lo0 inet proto tcp from any to self port 80 -> 127.0.0.1 port 8088
