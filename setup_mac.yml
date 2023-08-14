@@ -58,6 +58,7 @@
 
         homebrew_cask_appdir: /Applications
         homebrew_cask_apps:
+          - adobe-creative-cloud
           - caffeine
           - clickup
           - cryptomator
