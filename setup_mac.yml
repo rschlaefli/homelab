@@ -115,6 +115,8 @@
             name: Taskade
           - id: 1346247457
             name: Endel
+          - id: 1291898086
+            name: Toggl
 
     - role: osx_provisioner.collection.homeshick
       vars:
