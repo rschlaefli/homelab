@@ -21,6 +21,10 @@
   community.general.git_config:
     name: core.editor
     value: nano
+- name: Configure Git merge policy
+  community.general.git_config:
+    name: pull.rebase
+    value: false
 
 - name: Add Git alias - {{ item.name }}
   community.general.git_config:
