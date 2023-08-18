@@ -46,7 +46,7 @@
           - readline
           - ssh-copy-id
           - sqlite
-          # - volta
+          - volta
           - wget
           - wrk
           # - zsh-history-substring-search
