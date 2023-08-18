@@ -126,9 +126,9 @@
     - role: osx_provisioner.collection.asdf
       vars:
         asdf_plugins:
-          - name: "nodejs"
-            versions: ["18.17.1"]
-            global: "18.17.1"
+          # - name: "nodejs"
+          #   versions: ["18.17.1"]
+          #   global: "18.17.1"
           - name: "python"
             versions: ["3.11.4"]
             global: "3.11.4"
