@@ -6,6 +6,12 @@
 
     - role: geerlingguy.mac.homebrew
       vars:
+        homebrew_taps:
+          - homebrew/core
+          - homebrew/cask
+          - microsoft/git
+          - mongodb/brew
+
         homebrew_installed_packages:
           - antidote
           - asdf
@@ -31,6 +37,7 @@
           - libevent
           - libpq # postgres tooling
           - mcrypt
+          - mongodb-database-tools
           - mysql-client
           - nano
           - neovim
@@ -49,12 +56,8 @@
           - volta
           - wget
           - wrk
-          # - zsh-history-substring-search
 
-        homebrew_taps:
-          - homebrew/core
-          - homebrew/cask
-          - microsoft/git
+
 
         homebrew_cask_appdir: /Applications
         homebrew_cask_apps:
