@@ -13,6 +13,7 @@
           - mongodb/brew
 
         homebrew_installed_packages:
+          - act
           - antidote
           - asdf
           - azure-cli
