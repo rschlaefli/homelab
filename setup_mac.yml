@@ -135,6 +135,9 @@
           - name: "python"
             versions: ["3.11.4"]
             global: "3.11.4"
+          - name: "java"
+            versions: ["latest"]
+            global: "latest"
           # - name: "erlang"        # a plugin name
           #   environment: {}       # an optional dictionary of environment variables for build configuration
           #   pre_install: ""       # an optional command to run directly before the installation (i.e. select a Python Interpreter for compilation)
