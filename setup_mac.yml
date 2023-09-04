@@ -19,6 +19,7 @@
           - azure-cli
           - Azure/kubelogin/kubelogin
           - bash-completion
+          - certbot
           - dopplerhq/doppler/doppler
           - dotnet
           - gettext
@@ -33,6 +34,7 @@
           - httpie
           - iperf
           - k6
+          - kompose
           - kubernetes-cli
           - languagetool
           - libevent
