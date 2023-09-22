@@ -11,6 +11,7 @@
           - homebrew/cask
           - microsoft/git
           - mongodb/brew
+          - azure/draft
 
         homebrew_installed_packages:
           - act
@@ -23,6 +24,7 @@
           - cocoapods
           - dopplerhq/doppler/doppler
           - dotnet
+          - draft
           - gettext
           - git
           - git-extras
