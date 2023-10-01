@@ -55,7 +55,6 @@
           - podman-compose
           - poetry
           - pulumi
-          # - pyenv
           - pv
           - readline
           - ssh-copy-id
@@ -93,6 +92,7 @@
           - steam
           - raycast
           - rectangle
+          - reflect
           - responsively
           - visual-studio-code
           - vlc
@@ -123,8 +123,6 @@
             name: Keka
           - id: 1490048917
             name: Taskade
-          - id: 1346247457
-            name: Endel
           - id: 1291898086
             name: Toggl
 
@@ -216,11 +214,8 @@
           - name: ClickUp
             path: /Applications/ClickUp.app/
             pos: 5
-          - name: Obsidian
-            path: /Applications/Obsidian.app/
-            pos: 6
           - name: Spotify
             path: /Applications/Spotify.app/
-            pos: 7
+            pos: 6
 
     - role: settings
