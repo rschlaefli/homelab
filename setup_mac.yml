@@ -25,6 +25,7 @@
           - dopplerhq/doppler/doppler
           - dotnet
           - draft
+          - fx
           - gettext
           - git
           - git-extras
