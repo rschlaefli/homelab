@@ -23,6 +23,7 @@
           - bruno
           - certbot
           - cocoapods
+          - devcontainer
           - dopplerhq/doppler/doppler
           - dotnet
           - draft
