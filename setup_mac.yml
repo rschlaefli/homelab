@@ -24,6 +24,7 @@
           - certbot
           - cocoapods
           - devcontainer
+          - docker-credential-helper
           - dopplerhq/doppler/doppler
           - dotnet
           - draft
