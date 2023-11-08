@@ -60,6 +60,7 @@
           - poetry
           - pulumi
           - pv
+          - rancher
           - readline
           - ssh-copy-id
           - sqlite
