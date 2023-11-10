@@ -16,7 +16,7 @@
         homebrew_installed_packages:
           - act
           - antidote
-          - asdf
+          # - asdf
           - azure-cli
           - Azure/kubelogin/kubelogin
           - bash-completion
@@ -55,8 +55,8 @@
           - nmap
           - openssl
           - pnpm
-          - podman
-          - podman-compose
+          # - podman
+          # - podman-compose
           - poetry
           - pulumi
           - pv
