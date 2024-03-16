@@ -134,6 +134,8 @@
             name: Taskade
           - id: 1291898086
             name: Toggl
+          - id: 6469021132
+            name: PDFgear
 
     - role: osx_provisioner.collection.homeshick
       vars:
