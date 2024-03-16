@@ -136,6 +136,8 @@
             name: Toggl
           - id: 6469021132
             name: PDFgear
+          - id: 411643860
+            name: DaisyDisk
 
     - role: osx_provisioner.collection.homeshick
       vars:
