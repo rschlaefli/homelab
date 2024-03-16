@@ -138,6 +138,8 @@
             name: PDFgear
           - id: 411643860
             name: DaisyDisk
+          - id: 442168834
+            name: SiteSucker
 
     - role: osx_provisioner.collection.homeshick
       vars:
