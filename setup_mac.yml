@@ -12,6 +12,7 @@
           - microsoft/git
           - mongodb/brew
           - azure/draft
+          - azure/functions
 
         homebrew_installed_packages:
           - act
@@ -19,6 +20,7 @@
           # - asdf
           - azure-cli
           - Azure/kubelogin/kubelogin
+          - azure-functions-core-tools@4
           - bash-completion
           - bruno
           - certbot
@@ -52,6 +54,7 @@
           - mysql-client
           - nano
           - neovim
+          - ngrok/ngrok/ngrok
           - nmap
           - openssl
           - pnpm
