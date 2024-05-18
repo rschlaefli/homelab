@@ -68,6 +68,7 @@
           - readline
           - ssh-copy-id
           - sqlite
+          - stern # k8s logging
           - volta
           - wget
           - wrk
