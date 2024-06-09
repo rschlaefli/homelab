@@ -31,6 +31,7 @@
           - dopplerhq/doppler/doppler
           - dotnet
           - draft
+          - ffmpeg
           - fx
           - gettext
           - git
