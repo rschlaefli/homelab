@@ -25,6 +25,7 @@
           - bruno
           - certbot
           - cocoapods
+          - derailed/k9s/k9s
           - devcontainer
           - docker
           - docker-credential-helper
