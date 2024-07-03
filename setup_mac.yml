@@ -67,6 +67,7 @@
           - pv
           - r
           - rancher
+          - rbenv
           - readline
           - ssh-copy-id
           - sqlite
