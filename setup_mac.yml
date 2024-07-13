@@ -114,6 +114,7 @@
           - visual-studio-code
           - vlc
           - warp
+          - wave
           - zoom
 
     - role: geerlingguy.mac.mas
