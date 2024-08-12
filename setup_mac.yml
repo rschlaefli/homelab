@@ -44,6 +44,7 @@
           - helmfile
           - homeshick
           - httpie
+          - infisical/get-cli/infisical
           - iperf
           - k6
           - kompose
