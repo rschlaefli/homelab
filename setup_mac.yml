@@ -37,6 +37,7 @@
           - gettext
           - git
           - git-extras
+          - git-filter-repo
           - git-lfs
           - github/gh/gh
           - gpg
@@ -53,7 +54,7 @@
           - libevent
           - libpq # postgres tooling
           - mcrypt
-          - mongodb-database-tools
+          # - mongodb-database-tools
           - mysql-client
           - nano
           - neovim
@@ -79,43 +80,44 @@
 
         homebrew_cask_appdir: /Applications
         homebrew_cask_apps:
-          - adobe-acrobat-reader
-          - adobe-creative-cloud
-          - azure-data-studio
+          # - adobe-acrobat-reader
+          # - adobe-creative-cloud
+          # - azure-data-studio
           - caffeine
           - clickup
           - cryptomator
           - cyberduck
           - discord
-          - dozer # menu bar icon organization
+          # - dozer # menu bar icon organization
           - figma
-          - firefox
+          # - firefox
           - git-credential-manager-core
           - google-chrome
           - google-drive
           - handbrake
           - jetbrains-toolbox
           - lulu
-          - microsoft-azure-storage-explorer
+          # - microsoft-azure-storage-explorer
           - microsoft-edge
           - microsoft-teams
           - mongodb-compass
           - notion
           - obsidian
-          - podman-desktop
-          - polypane
+          # - podman-desktop
+          # - polypane
           - redisinsight
           - spacedrive
           - spotify
           - steam
           - raycast
-          - rectangle
-          - reflect
+          # - rectangle
+          # - reflect
           - responsively
           - visual-studio-code
           - vlc
           - warp
-          - wave
+          # - wave
+          - zen-browser
           - zoom
 
     - role: geerlingguy.mac.mas
@@ -136,8 +138,8 @@
             name: Microsoft OneNote
           - id: 823766827
             name: OneDrive
-          - id: 1085114709
-            name: Parallels Desktop
+          # - id: 1085114709
+          #   name: Parallels Desktop
           - id: 470158793
             name: Keka
           - id: 1490048917
