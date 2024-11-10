@@ -71,6 +71,7 @@
           - rancher
           - rbenv
           - readline
+          - redis
           - ssh-copy-id
           - sqlite
           - stern # k8s logging
