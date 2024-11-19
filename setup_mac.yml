@@ -78,6 +78,7 @@
           - stern # k8s logging
           - volta
           - wget
+          - whisky
           - wrk
 
         homebrew_cask_appdir: /Applications
