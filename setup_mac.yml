@@ -80,6 +80,7 @@
           - wget
           - whisky
           - wrk
+          - zrok
 
         homebrew_cask_appdir: /Applications
         homebrew_cask_apps:
