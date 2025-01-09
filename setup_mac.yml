@@ -68,7 +68,7 @@
           - poetry
           - pulumi
           - pv
-          - r
+          # - r
           - rancher
           - rbenv
           - readline
