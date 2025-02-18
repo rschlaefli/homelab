@@ -25,6 +25,7 @@
           - bruno
           - certbot
           - cocoapods
+          - d2
           - derailed/k9s/k9s
           - devcontainer
           - docker
