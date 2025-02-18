@@ -43,6 +43,7 @@
           - github/gh/gh
           - gitleaks
           - gpg
+          - graphviz
           - helm
           - helmfile
           - homeshick
