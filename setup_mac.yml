@@ -75,6 +75,7 @@
           - rbenv
           - readline
           - redis
+          - ripgrep
           - ssh-copy-id
           - sqlite
           - stern # k8s logging
