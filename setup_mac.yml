@@ -202,13 +202,6 @@
             rdr pass on en0 inet proto tcp from any to any port 80 -> 127.0.0.1 port 8088
             rdr pass on en1 inet proto tcp from any to any port 80 -> 127.0.0.1 port 8088
 
-    - role: osx_provisioner.collection.clamav
-      vars:
-        brew_prefix: /opt/homebrew
-        clamav_clamwatch: true
-        clamav_clamwatch_target_folder: "{{ lookup('env','HOME') }}/Downloads"
-        clamav_clamwatch_quarantine_folder: "{{ lookup('env','HOME') }}/Quarantine"
-
     - role: geerlingguy.mac.dock
       when: configure_dock
       vars:
