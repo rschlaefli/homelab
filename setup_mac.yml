@@ -76,6 +76,7 @@
           - readline
           - redis
           - ripgrep
+          - ruff
           - ssh-copy-id
           - sqlite
           - stern # k8s logging
