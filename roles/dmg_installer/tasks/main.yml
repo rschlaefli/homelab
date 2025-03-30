@@ -1,0 +1,23 @@
+---
+# tasks file for dmg_installer
+
+- name: Find DMG files in app_files directory
+  find:
+    paths: "{{ playbook_dir }}/app_files"
+    patterns: "*.dmg"
+    file_type: file # Ensure we only find files
+  register: dmg_files
+  tags: [apps, dmg]
+
+- name: Ensure applications directory exists
+  file:
+    path: "{{ homebrew_cask_appdir }}"
+    state: directory
+  tags: [apps, dmg]
+
+- name: Install applications from DMG files
+  include_tasks: install_single_dmg.yml
+  loop: "{{ dmg_files.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
+  tags: [apps, dmg] 

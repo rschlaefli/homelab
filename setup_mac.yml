@@ -1,46 +1,69 @@
+---
+# MacOS Setup Playbook
+# This playbook configures a new macOS system with apps, settings, and development tools
+
 - name: Setup MacOS
   hosts: 127.0.0.1
+  connection: local
+  become_method: sudo
+
+  # Variables that can be customized
+  vars:
+    # User info for configuration
+    user_full_name: "Roland Schlaefli"
+    user_email: "rolandschlaefli@gmail.com"
+    
+    # Configuration toggles
+    configure_dock: true
+    configure_homebrew: true
+    configure_mas: true
+    configure_asdf: true
+    configure_firewall: true
+    configure_settings: true
+    
+    # Default paths
+    homebrew_cask_appdir: "/Applications"
 
   roles:
+    # Command Line Tools
     - role: elliotweiser.osx-command-line-tools
+      tags: [core, xcode, tools]
 
+    # Homebrew and applications
     - role: geerlingguy.mac.homebrew
+      when: configure_homebrew | bool
+      tags: [core, homebrew, apps]
       vars:
         homebrew_taps:
-          - homebrew/core
-          - homebrew/cask
-          - microsoft/git
-          - mongodb/brew
-          - azure/draft
-          - azure/functions
-
+          - aviator-co/tap
         homebrew_installed_packages:
           - act
           - antidote
-          # - asdf
+          - asdf
+          - aviator-co/tap/av
           - azure-cli
-          - Azure/kubelogin/kubelogin
-          - azure-functions-core-tools@4
-          - bash-completion
+          - kubelogin
           - bruno
           - certbot
           - cocoapods
           - d2
-          - derailed/k9s/k9s
+          - k9s
           - devcontainer
           - docker
           - docker-credential-helper
-          - dopplerhq/doppler/doppler
+          - dockutil
+          - doppler
           - dotnet
           - draft
           - ffmpeg
           - fx
           - gettext
           - git
+          - git-delta
           - git-extras
           - git-filter-repo
           - git-lfs
-          - github/gh/gh
+          - gh
           - gitleaks
           - gpg
           - graphviz
@@ -48,7 +71,7 @@
           - helmfile
           - homeshick
           - httpie
-          - infisical/get-cli/infisical
+          - infisical
           - iperf
           - k6
           - kompose
@@ -56,23 +79,15 @@
           - languagetool
           - libevent
           - libpq # postgres tooling
-          - mcrypt
-          # - mongodb-database-tools
           - mysql-client
           - nano
-          - neovim
-          - ngrok/ngrok/ngrok
           - nmap
           - openssl
           - pnpm
-          # - podman
-          # - podman-compose
           - poetry
           - pulumi
           - pv
-          # - r
           - rancher
-          - rbenv
           - readline
           - redis
           - ripgrep
@@ -87,53 +102,50 @@
           - wrk
           - zrok
 
-        homebrew_cask_appdir: /Applications
         homebrew_cask_apps:
-          # - adobe-acrobat-reader
-          # - adobe-creative-cloud
-          # - azure-data-studio
+          - bartender
           - caffeine
+          - claude
           - clickup
+          - crossover
           - cryptomator
+          - cursor
           - cyberduck
           - discord
-          # - dozer # menu bar icon organization
           - figma
-          # - firefox
-          - git-credential-manager-core
+          - git-credential-manager
           - google-chrome
-          - google-drive
           - handbrake
           - jetbrains-toolbox
           - lulu
-          # - microsoft-azure-storage-explorer
+          - malwarebytes
           - microsoft-edge
           - microsoft-teams
-          - mongodb-compass
-          - notion
           - obsidian
-          # - podman-desktop
-          # - polypane
           - redisinsight
           - spacedrive
           - spotify
           - steam
           - raycast
-          # - rectangle
-          # - reflect
           - responsively
           - visual-studio-code
+          - vivaldi
           - vlc
           - warp
-          # - wave
           - windsurf
           - zen-browser
           - zoom
 
+    # Mac App Store applications
     - role: geerlingguy.mac.mas
-      when: mas_installed_apps or mas_installed_app_ids
+      when: configure_mas | bool and (mas_installed_apps or mas_installed_app_ids)
+      tags: [apps, mas]
       vars:
         mas_installed_apps:
+          - id: 6714467650
+            name: Perplexity
+          - id: 1487937127
+            name: Craft
           - id: 1352778147
             name: Bitwarden
           - id: 1295203466
@@ -148,8 +160,6 @@
             name: Microsoft OneNote
           - id: 823766827
             name: OneDrive
-          # - id: 1085114709
-          #   name: Parallels Desktop
           - id: 470158793
             name: Keka
           - id: 1490048917
@@ -163,38 +173,49 @@
           - id: 442168834
             name: SiteSucker
 
+    # Custom DMG installations
+    - role: dmg_installer
+      tags: [apps, dmg]
+
+    # Dotfiles
     - role: osx_provisioner.collection.homeshick
+      tags: [dotfiles]
       vars:
         homeshick_dotfiles_repo: https://github.com/rschlaefli/dotfiles
         homeshick_force: true
 
+    # Programming languages
     - role: osx_provisioner.collection.asdf
+      when: configure_asdf | bool
+      tags: [dev, languages]
       vars:
         asdf_plugins:
           # - name: "nodejs"
           #   versions: ["18.17.1"]
           #   global: "18.17.1"
-          - name: "python"
-            versions: ["3.11.4"]
-            global: "3.11.4"
+          # - name: "python"
+          #   versions: ["3.11.4"]
+          #   global: "3.11.4"
           - name: "java"
             versions: ["latest"]
             global: "latest"
-          # - name: "erlang"        # a plugin name
-          #   environment: {}       # an optional dictionary of environment variables for build configuration
-          #   pre_install: ""       # an optional command to run directly before the installation (i.e. select a Python Interpreter for compilation)
-          #   repository: ""        # a plugin repository, optional
-          #   versions:             # a list of versions to install
+          # - name: "erlang"
+          #   environment: {}
+          #   pre_install: ""
+          #   repository: ""
+          #   versions:
           #     - 23.3.3
           #     - 23.3.4
-          #   delete_versions: []   # a list of existing versions that will be removed
-          #   global: 23.3.4        # set as a global version, optional
+          #   delete_versions: []
+          #   global: 23.3.4
 
+    # Firewall configuration
     - role: osx_provisioner.collection.firewall
+      when: configure_firewall | bool
+      tags: [security, firewall]
       vars:
         firewall_enabled: true
         firewall_stealth_mode_enabled: true
-
         firewall_pf_anchors:
         - name: local_domain.pf
           description: Forward port 80 to 8088 for local domains
@@ -203,10 +224,12 @@
             rdr pass on en0 inet proto tcp from any to any port 80 -> 127.0.0.1 port 8088
             rdr pass on en1 inet proto tcp from any to any port 80 -> 127.0.0.1 port 8088
 
+    # Dock configuration
     - role: geerlingguy.mac.dock
-      when: configure_dock
+      when: configure_dock | bool
+      tags: [ui, dock]
       vars:
-        configure_dock: true
+        dockutil_install: false
         dockitems_remove:
           - Launchpad
           - Safari
@@ -229,23 +252,32 @@
           - Maps
           - Messages
         dockitems_persist:
-          - name: Firefox
-            path: /Applications/Firefox.app/
+          - name: Zen
+            path: /Applications/Zen.app/
             pos: 1
-          - name: Microsoft Teams
-            path: /Applications/Microsoft Teams.app/
-            pos: 2
           - name: Warp
             path: /Applications/Warp.app/
+            pos: 2
+          - name: Cursor
+            path: /Applications/Cursor.app/
             pos: 3
-          - name: Visual Studio Code
-            path: /Applications/Visual Studio Code.app/
+          - name: Claude
+            path: /Applications/Claude.app/
             pos: 4
+          - name: Craft
+            path: /Applications/Craft.app/
+            pos: 5
           - name: ClickUp
             path: /Applications/ClickUp.app/
-            pos: 5
+            pos: 6
+          - name: Microsoft Teams
+            path: /Applications/Microsoft Teams.app/
+            pos: 7
           - name: Spotify
             path: /Applications/Spotify.app/
-            pos: 6
+            pos: 8
 
+    # OS settings and preferences
     - role: settings
+      when: configure_settings | bool
+      tags: [settings]

@@ -1,0 +1,68 @@
+# tasks file for installing a single DMG
+
+- name: Process DMG - {{ item.path | basename }}
+  block:
+    - name: "DMG Install | {{ item.path | basename }} | Get DMG filename"
+      set_fact:
+        dmg_filename: "{{ item.path | basename }}"
+
+    - name: "DMG Install | {{ dmg_filename }} | Create temporary mount point"
+      tempfile:
+        state: directory
+        prefix: ansible-dmg-
+      register: temp_mount_point
+
+    - name: "DMG Install | {{ dmg_filename }} | Mount DMG"
+      command: "hdiutil attach '{{ item.path }}' -mountpoint '{{ temp_mount_point.path }}' -nobrowse -quiet"
+      register: mount_result
+      changed_when: true # Mounting is always a change
+      failed_when: mount_result.rc != 0
+
+    - name: "DMG Install | {{ dmg_filename }} | Find .app bundle"
+      find:
+        paths: "{{ temp_mount_point.path }}"
+        patterns: "*.app"
+        file_type: directory
+        recurse: no # Only look in the root
+      register: app_bundle
+
+    - name: "DMG Install | {{ dmg_filename }} | Set app bundle fact"
+      set_fact:
+        app_bundle_path: "{{ app_bundle.files[0].path }}"
+      when: app_bundle.files | length > 0
+
+    - name: "DMG Install | {{ dmg_filename }} | Check if app exists"
+      stat:
+        path: "{{ homebrew_cask_appdir }}/{{ app_bundle_path | basename }}"
+      register: existing_app
+      when: app_bundle_path is defined
+
+    - name: "DMG Install | {{ dmg_filename }} | Copy .app to Applications"
+      command: "cp -Rp '{{ app_bundle_path }}' '{{ homebrew_cask_appdir }}/'"
+      when:
+        - app_bundle_path is defined
+        - not existing_app.stat.exists
+      register: copy_result
+      changed_when: true # Copying is always a change if it runs
+      failed_when: copy_result.rc != 0
+
+  rescue:
+    - name: "DMG Install | {{ item.path | basename }} | Rescue block - Log error"
+      debug:
+        msg: "An error occurred during installation of {{ item.path | basename }}. Attempting cleanup."
+
+  always:
+    # Always attempt unmount and cleanup, regardless of success or failure in block/rescue
+    - name: "DMG Install | {{ item.path | basename }} | Always - Unmount DMG"
+      command: "hdiutil detach '{{ temp_mount_point.path }}' -quiet"
+      when: mount_result is defined and mount_result.rc == 0 and temp_mount_point.path is defined
+      register: unmount_result
+      changed_when: true # Unmounting is always a change if it runs
+      failed_when: unmount_result.rc != 0
+      ignore_errors: true # Continue cleanup even if unmount fails
+
+    - name: "DMG Install | {{ item.path | basename }} | Always - Clean up temporary mount point"
+      file:
+        path: "{{ temp_mount_point.path }}"
+        state: absent
+      when: temp_mount_point.path is defined 

@@ -1,46 +1,147 @@
-- name: "Finder: show all filename extensions"
-  command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-- name: "Finder: When performing a search, search the current folder by default"
-  command: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-- name: "Finder: Avoid creating .DS_Store files on network volumes"
-  command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-- name: "Show the ~/Library folder"
-  command: chflags nohidden ~/Library
-- name: "Don't Ask confirmation for change extension"
-  command: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+---
+# Main settings role for macOS configuration
 
-- name: Set name in Git config
-  git_config:
-    name: user.name
-    value: Roland Schlaefli
-- name: Set email in Git config
-  git_config:
-    name: user.email
-    value: rolandschlaefli@gmail.com
-- name: Set the editor for Git to nano
-  community.general.git_config:
-    name: core.editor
-    value: nano
-- name: Configure Git merge policy
-  community.general.git_config:
-    name: pull.rebase
-    value: false
+# Finder Settings
+- name: Configure Finder settings
+  block:
+    - name: "Finder: show all filename extensions"
+      command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+    - name: "Finder: When performing a search, search the current folder by default"
+      command: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+    - name: "Finder: Avoid creating .DS_Store files on network volumes"
+      command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+    - name: "Finder: Show the ~/Library folder"
+      command: chflags nohidden ~/Library
+    - name: "Finder: Don't Ask confirmation for change extension"
+      command: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+  tags: finder
 
-- name: Add Git alias - {{ item.name }}
-  community.general.git_config:
-    name: "{{ item.name }}"
-    value: "{{ item.value }}"
-  loop:
-    - { name: 'alias.cm', value: 'commit -m' }
-    - { name: 'alias.co', value: 'checkout' }
-    - { name: 'alias.br', value: 'branch' }
-    - { name: 'alias.cb', value: 'checkout -B' }
-    - { name: 'alias.c', value: 'commit' }
-    - { name: 'alias.st', value: 'status' }
-    - { name: 'alias.d', value: 'diff' }
-    - { name: 'alias.ds', value: 'status -v' }
-    - { name: 'alias.unstage', value: 'reset HEAD --' }
-    - { name: 'alias.last', value: 'log -1 HEAD' }
-    - { name: 'alias.p', value: 'push' }
-    - { name: 'alias.pn', value: 'push --no-verify' }
-    - { name: 'alias.undo', value: 'reset --soft HEAD~1' }
+# Input Device Settings
+- name: Configure input device settings
+  block:
+    - name: "Invert scroll wheel direction"
+      command: defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+  tags: input
+
+# Git Configuration
+- name: Configure Git settings
+  block:
+    - name: Set Git user information
+      git_config:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        scope: global
+      loop:
+        - { name: 'user.name', value: 'Roland Schlaefli' }
+        - { name: 'user.email', value: 'rolandschlaefli@gmail.com' }
+        - { name: 'core.editor', value: 'nano' }
+        - { name: 'pull.rebase', value: 'false' }
+      tags: git
+
+    - name: Add Git aliases
+      community.general.git_config:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        scope: global
+      loop:
+        - { name: 'alias.cm', value: 'commit -m' }
+        - { name: 'alias.co', value: 'checkout' }
+        - { name: 'alias.br', value: 'branch' }
+        - { name: 'alias.cb', value: 'checkout -B' }
+        - { name: 'alias.c', value: 'commit' }
+        - { name: 'alias.st', value: 'status' }
+        - { name: 'alias.d', value: 'diff' }
+        - { name: 'alias.ds', value: 'status -v' }
+        - { name: 'alias.unstage', value: 'reset HEAD --' }
+        - { name: 'alias.last', value: 'log -1 HEAD' }
+        - { name: 'alias.p', value: 'push' }
+        - { name: 'alias.pn', value: 'push --no-verify' }
+        - { name: 'alias.undo', value: 'reset --soft HEAD~1' }
+      tags: git
+
+# Keyboard and Language Settings
+- name: Configure keyboard and language settings
+  block:
+    - name: Read current keyboard layouts
+      shell: defaults read com.apple.HIToolbox AppleEnabledInputSources
+      register: current_keyboard_layouts
+      changed_when: false
+      ignore_errors: true
+      tags: keyboard
+
+    - name: Add US International keyboard layout if not present
+      command: defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>30778</integer><key>KeyboardLayout Name</key><string>US International</string></dict>'
+      when: >
+        current_keyboard_layouts.stdout is not defined or
+        '"US International"' not in current_keyboard_layouts.stdout
+      tags: keyboard
+
+    - name: Add Swiss German keyboard layout if not present
+      command: defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>17</integer><key>KeyboardLayout Name</key><string>Swiss German</string></dict>'
+      when: >
+        current_keyboard_layouts.stdout is not defined or
+        '"Swiss German"' not in current_keyboard_layouts.stdout
+      tags: keyboard
+
+    - name: Set US International as the default input source
+      command: defaults write com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID -string "com.apple.keylayout.USInternational"
+      tags: keyboard
+
+    - name: Enable keyboard layout switching with Cmd+Space
+      command: defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
+      tags: keyboard
+
+# Machine-specific Settings
+- name: Configure machine-specific settings
+  block:
+    - name: Detect if machine is a laptop
+      shell: system_profiler SPHardwareDataType | grep "Model Identifier" | grep -q "Book"
+      register: is_laptop
+      changed_when: false
+      ignore_errors: true
+      tags: machine
+
+    - name: Apply laptop-specific settings
+      command: "{{ item }}"
+      loop:
+        - defaults write com.apple.touchbar.agent PresentationModeGlobal -string "fullControlStrip"
+        - defaults write com.apple.touchbar.agent PresentationModeFnModes -dict-add fullControlStrip -string "app"
+        - defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+        - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+        - defaults write com.apple.PowerManagement "Battery Power" -dict-add "Automatic Graphics Switch" -bool true
+      when: is_laptop.rc == 0
+      tags: machine
+
+    - name: Apply desktop-specific settings
+      command: "{{ item }}"
+      loop:
+        - defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+        - defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+      when: is_laptop.rc != 0
+      tags: machine
+
+# Dock Settings
+- name: Configure Dock settings
+  block:
+    - name: "Dock: Hide recent applications"
+      command: defaults write com.apple.dock show-recents -bool false
+    - name: "Dock: Set icon size"
+      command: defaults write com.apple.dock tilesize -int 36
+    - name: "Dock: Position Dock on the left"
+      command: defaults write com.apple.dock orientation -string left
+    - name: "Dock: Restart Dock to apply changes"
+      command: killall Dock
+  tags: dock
+
+# Hot Corner Settings
+- name: Configure hot corners
+  block:
+    - name: Set top left corner to Launchpad
+      command: defaults write com.apple.dock wvous-tl-corner -int 11
+    - name: Set top right corner to Mission Control
+      command: defaults write com.apple.dock wvous-tr-corner -int 2
+    - name: Set bottom right corner to Desktop
+      command: defaults write com.apple.dock wvous-br-corner -int 4
+    - name: Restart Dock to apply changes
+      command: killall Dock
+  tags: hotcorners
