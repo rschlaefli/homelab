@@ -84,6 +84,7 @@
           - nano
           - nmap
           - openssl
+          - pandoc
           - pnpm
           - poetry
           - pulumi
