@@ -80,9 +80,11 @@
           - languagetool
           - libevent
           - libpq # postgres tooling
+          - mkcert # local certs
           - mysql-client
           - nano
           - nmap
+          - nss # local certs
           - openssl
           - pandoc
           - pnpm
