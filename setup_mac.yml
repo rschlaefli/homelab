@@ -107,7 +107,6 @@
           - zrok
 
         homebrew_cask_apps:
-          - bartender
           - caffeine
           - claude
           - clickup
@@ -120,6 +119,7 @@
           - git-credential-manager
           - google-chrome
           - handbrake
+          - jordanbaird-ice
           - jetbrains-toolbox
           - lulu
           - mactex
