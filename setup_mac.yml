@@ -89,6 +89,7 @@
           - pandoc
           - pnpm
           - poetry
+          - poppler
           - pulumi
           - pv
           - rancher
