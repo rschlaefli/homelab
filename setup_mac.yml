@@ -59,6 +59,7 @@
           - draft
           - ffmpeg
           - fx
+          - gemini-cli
           - gettext
           - git
           - git-delta
