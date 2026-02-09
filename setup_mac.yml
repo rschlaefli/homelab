@@ -104,6 +104,7 @@
           - sqlite
           - stern # k8s logging
           - uv
+          - vercel-cli
           - volta
           - wget
           - whisky
