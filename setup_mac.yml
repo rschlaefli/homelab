@@ -43,6 +43,7 @@
           - aviator-co/tap/av
           - azure-cli
           - kubelogin
+          - battery
           - bruno
           - btop
           - certbot
