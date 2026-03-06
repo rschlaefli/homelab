@@ -67,6 +67,7 @@
           - git-extras
           - git-filter-repo
           - git-lfs
+          - git-sizer
           - gh
           - gitleaks
           - glab
